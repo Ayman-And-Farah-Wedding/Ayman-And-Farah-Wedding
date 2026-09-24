@@ -56,13 +56,13 @@
   color: var(--color-gold-deep);
 }
 
-@media (max-width: 560px) {
+@media (max-width: 640px) {
+  /* At phone widths there isn't room for monogram + 3 links + the
+     language toggle without wrapping/overlap — the links were
+     colliding with the EN|AR pill. Keep just the monogram; the site is
+     a single scrolling page, so jump-links aren't essential here. */
   .site-nav__links {
-    gap: 1rem;
-    margin-inline-end: 3.5rem;
-  }
-  .site-nav__links a {
-    font-size: 0.62rem;
+    display: none;
   }
 }
 

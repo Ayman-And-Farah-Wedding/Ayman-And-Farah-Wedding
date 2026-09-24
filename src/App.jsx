@@ -14,7 +14,7 @@ import { WeddingDetails } from "./components/WeddingDetails";
 import { Location } from "./components/Location";
 import { GuestBook } from "./components/GuestBook";
 import { Footer } from "./components/Footer";
-import { AmbientLight } from "./components/AmbientLight";
+import { GoldenParticles } from "./components/GoldenParticles";
 import { fireConfetti } from "./utils/confetti";
 
 function Invitation() {
@@ -46,7 +46,7 @@ function Invitation() {
 
       <AnimatePresence>{!opened && <OpeningScreen onOpen={handleOpen} />}</AnimatePresence>
 
-      {opened && <AmbientLight />}
+      {opened && <GoldenParticles />}
 
       {/* inert keeps everything behind the opening overlay out of tab order
           and unclickable until the guest actually opens the invitation. */}

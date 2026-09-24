@@ -1,0 +1,140 @@
+.golden-particles {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* ---- Falling glowing stars ---------------------------------------------- */
+
+.golden-star {
+  position: absolute;
+  top: -6%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 246, 220, 0.95) 0%,
+    rgba(217, 189, 130, 0.85) 45%,
+    rgba(217, 189, 130, 0) 75%
+  );
+  animation-name: star-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes star-fall {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--drift), 112vh);
+    opacity: 0;
+  }
+}
+
+/* ---- Drifting butterflies ------------------------------------------------ */
+
+.golden-butterfly {
+  position: absolute;
+  left: -10%;
+  top: var(--start-top, 30%);
+  color: var(--color-gold);
+  fill: currentColor;
+  filter: drop-shadow(0 0 4px rgba(217, 189, 130, 0.55));
+  animation-name: butterfly-fly;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+
+.golden-butterfly--reverse {
+  left: auto;
+  right: -10%;
+  animation-name: butterfly-fly-reverse;
+}
+
+.golden-butterfly__wings {
+  transform-origin: 16px 12px;
+  animation: wing-flap 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes wing-flap {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0.5);
+  }
+}
+
+@keyframes butterfly-fly {
+  0% {
+    left: -10%;
+    top: var(--start-top, 30%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  30% {
+    top: calc(var(--start-top, 30%) - 7%);
+  }
+  55% {
+    top: calc(var(--start-top, 30%) + 5%);
+  }
+  80% {
+    top: calc(var(--start-top, 30%) - 4%);
+  }
+  92% {
+    opacity: 0.85;
+  }
+  100% {
+    left: 108%;
+    top: var(--start-top, 30%);
+    opacity: 0;
+  }
+}
+
+@keyframes butterfly-fly-reverse {
+  0% {
+    right: -10%;
+    top: var(--start-top, 30%);
+    opacity: 0;
+    transform: scaleX(-1);
+  }
+  10% {
+    opacity: 0.85;
+  }
+  30% {
+    top: calc(var(--start-top, 30%) + 6%);
+  }
+  55% {
+    top: calc(var(--start-top, 30%) - 5%);
+  }
+  80% {
+    top: calc(var(--start-top, 30%) + 4%);
+  }
+  92% {
+    opacity: 0.85;
+  }
+  100% {
+    right: 108%;
+    top: var(--start-top, 30%);
+    opacity: 0;
+    transform: scaleX(-1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .golden-particles {
+    display: none;
+  }
+}
