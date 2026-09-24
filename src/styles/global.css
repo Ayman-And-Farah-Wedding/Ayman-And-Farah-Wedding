@@ -1,0 +1,248 @@
+@import "./variables.css";
+@import "./animations.css";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* ---- Layout helpers -------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section-padding-y);
+}
+
+.section--dark {
+  background: var(--color-charcoal);
+  color: var(--color-cream-text);
+}
+
+.section--cream-deep {
+  background: var(--color-cream-deep);
+}
+
+/* ---- Typography helpers ------------------------------------------------ */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75em;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-gold-deep);
+}
+
+.section--dark .eyebrow {
+  color: var(--color-gold-light);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 2.25rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+[dir="rtl"] .eyebrow::before {
+  order: 2;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  line-height: 1.15;
+  margin-top: 0.9rem;
+}
+
+.section-lede {
+  margin-top: 1.1rem;
+  max-width: 42ch;
+  font-size: clamp(0.98rem, 1.4vw, 1.08rem);
+  color: var(--color-ink-soft);
+  font-weight: 300;
+}
+
+.section--dark .section-lede {
+  color: var(--color-cream-text-soft);
+}
+
+.divider {
+  width: 3.5rem;
+  height: 1px;
+  background: var(--color-gold);
+  opacity: 0.6;
+  margin-block: 1.5rem;
+}
+
+.divider--center {
+  margin-inline: auto;
+}
+
+/* ---- Buttons ------------------------------------------------------------ */
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 2.4rem;
+  min-height: 3.1rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-gold-deep);
+  transition: background-color var(--dur-fast) var(--ease-premium),
+    color var(--dur-fast) var(--ease-premium),
+    border-color var(--dur-fast) var(--ease-premium),
+    transform var(--dur-fast) var(--ease-premium);
+}
+
+.btn:hover {
+  background: var(--color-gold);
+  color: var(--color-charcoal);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn--solid {
+  background: var(--color-gold);
+  color: var(--color-charcoal);
+}
+
+.btn--solid:hover {
+  background: var(--color-gold-deep);
+  border-color: var(--color-gold-deep);
+  color: var(--color-cream-text);
+}
+
+.section--dark .btn {
+  border-color: var(--color-gold-light);
+  color: var(--color-gold-light);
+}
+
+.section--dark .btn:hover {
+  background: var(--color-gold-light);
+  color: var(--color-charcoal);
+}
+
+/* ---- Visually hidden (a11y) --------------------------------------------- */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Skip link ------------------------------------------------------------ */
+
+.skip-link {
+  position: absolute;
+  top: -3rem;
+  left: 1rem;
+  z-index: 1000;
+  background: var(--color-charcoal);
+  color: var(--color-cream-text);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  transition: top var(--dur-fast) var(--ease-premium);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

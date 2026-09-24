@@ -1,0 +1,54 @@
+.footer {
+  padding-block: clamp(3rem, 8vw, 4.5rem);
+}
+
+.footer__inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer__names {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  letter-spacing: 0.08em;
+  color: var(--color-cream-text);
+}
+
+.footer__thanks {
+  font-family: var(--font-accent);
+  font-style: italic;
+  color: var(--color-cream-text-soft);
+  margin-bottom: 1.75rem;
+}
+
+.footer__social {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  color: var(--color-gold-light);
+}
+
+.footer__icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  transition: opacity 0.25s ease;
+}
+
+.footer__icon--static {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.footer__social a:hover .footer__icon {
+  opacity: 0.7;
+}
+
+.footer__hashtag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}

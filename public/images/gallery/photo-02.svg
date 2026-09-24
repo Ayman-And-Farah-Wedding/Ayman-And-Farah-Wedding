@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1067" viewBox="0 0 1600 1067">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="38%" r="75%">
+      <stop offset="0%" stop-color="#3d332a"/>
+      <stop offset="100%" stop-color="#1f1d1a"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1067" fill="url(#g)"/>
+  <line x1="832.6" y1="710.9" x2="1447.0" y2="462.7" stroke="#d4b483" stroke-opacity="0.06" stroke-width="1"/><line x1="537.2" y1="622.7" x2="718.7" y2="566.7" stroke="#d4b483" stroke-opacity="0.06" stroke-width="1"/><line x1="1421.2" y1="246.6" x2="1348.4" y2="1029.9" stroke="#d4b483" stroke-opacity="0.06" stroke-width="1"/><line x1="207.6" y1="1028.3" x2="1289.5" y2="789.1" stroke="#d4b483" stroke-opacity="0.06" stroke-width="1"/><line x1="14.3" y1="400.6" x2="20.6" y2="952.6" stroke="#d4b483" stroke-opacity="0.06" stroke-width="1"/>
+  <rect x="48.015" y="48.015" width="1503.97" height="970.97" fill="none" stroke="#d4b483" stroke-opacity="0.35" stroke-width="1.5"/>
+  <g fill="none" stroke="#d4b483" stroke-opacity="0.55" stroke-width="1">
+    <line x1="730" y1="533.5" x2="774" y2="533.5"/>
+    <line x1="826" y1="533.5" x2="870" y2="533.5"/>
+  </g>
+  <text x="800" y="533.5" text-anchor="middle" dominant-baseline="central"
+    font-family="'Playfair Display', 'Georgia', serif" font-size="96.03"
+    fill="#d4b483" fill-opacity="0.85" letter-spacing="6">A · S</text>
+</svg>

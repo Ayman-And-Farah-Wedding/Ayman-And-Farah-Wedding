@@ -1,0 +1,54 @@
+.story__intro {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: clamp(3rem, 8vw, 5rem);
+}
+
+.story__timeline {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.25rem, 6vw, 3.25rem);
+}
+
+.story__item {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: start;
+  gap: 1.25rem;
+}
+
+.story__year {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  color: var(--color-gold-deep);
+  min-width: 4.5ch;
+}
+
+.story__line {
+  width: 1px;
+  align-self: stretch;
+  background: var(--color-line);
+  margin-top: 0.6rem;
+}
+
+.story__title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.story__text {
+  color: var(--color-ink-soft);
+  font-size: 0.98rem;
+  max-width: 48ch;
+}
+
+@media (max-width: 540px) {
+  .story__item {
+    grid-template-columns: auto 1fr;
+  }
+  .story__line {
+    display: none;
+  }
+}

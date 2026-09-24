@@ -1,0 +1,58 @@
+/* ============================================================================
+   DESIGN TOKENS
+   ----------------------------------------------------------------------------
+   This is the file to edit if you want to change the COLOR PALETTE or
+   FONTS used across the entire site. Every component reads its colors and
+   typefaces from these CSS variables — nothing is hard-coded elsewhere.
+   ============================================================================ */
+
+:root {
+  /* ---- Palette --------------------------------------------------------- */
+  --color-ink: #211c18;          /* primary text on light backgrounds */
+  --color-ink-soft: #6b6156;     /* secondary / muted text on light bg */
+  --color-cream: #faf6ef;        /* primary light background */
+  --color-cream-deep: #f2e9d8;   /* secondary light background (cards) */
+  --color-charcoal: #17140f;     /* primary dark background */
+  --color-charcoal-soft: #251f18;/* secondary dark background */
+  --color-paper: #fffdf9;        /* near-white surface */
+
+  --color-gold: #b8944f;         /* primary accent */
+  --color-gold-light: #ddc189;   /* accent on dark backgrounds */
+  --color-gold-deep: #8f6f34;    /* accent hover / emphasis */
+  --color-line: rgba(184, 148, 79, 0.35);
+  --color-line-dark: rgba(221, 193, 137, 0.28);
+
+  --color-cream-text: #f6efe2;   /* text on dark backgrounds */
+  --color-cream-text-soft: rgba(246, 239, 226, 0.72);
+
+  /* ---- Typography -------------------------------------------------------- */
+  --font-serif: "Playfair Display", "Georgia", serif;
+  --font-accent: "Cormorant Garamond", "Georgia", serif;
+  --font-sans: "Jost", "Helvetica Neue", Arial, sans-serif;
+
+  --font-serif-ar: "Aref Ruqaa", "Amiri", "Traditional Arabic", serif;
+  --font-accent-ar: "Amiri", "Traditional Arabic", serif;
+  --font-sans-ar: "Cairo", Tahoma, sans-serif;
+
+  /* ---- Layout ------------------------------------------------------------- */
+  --container-width: 1180px;
+  --container-narrow: 720px;
+  --section-padding-y: clamp(4.5rem, 11vw, 9rem);
+  --gutter: clamp(1.5rem, 6vw, 3rem);
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  /* ---- Motion --------------------------------------------------------------- */
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 0.35s;
+  --dur-medium: 0.85s;
+  --dur-slow: 1.4s;
+
+  color-scheme: light;
+}
+
+[dir="rtl"] {
+  --font-serif: var(--font-serif-ar);
+  --font-accent: var(--font-accent-ar);
+  --font-sans: var(--font-sans-ar);
+}

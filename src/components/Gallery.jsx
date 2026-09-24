@@ -1,0 +1,84 @@
+import { motion } from "framer-motion";
+import { wedding, gallery } from "../config/wedding";
+import { useLanguage } from "../context/LanguageContext";
+import { useReducedMotion } from "../hooks/useReducedMotion";
+import { galleryPhotoPath } from "../utils/assetPath";
+import { PhotoFrame } from "./PhotoFrame";
+import { Reveal } from "./Reveal";
+import "./Gallery.css";
+
+export function Gallery() {
+  const { t } = useLanguage();
+  const reducedMotion = useReducedMotion();
+
+  if (!wedding.showGallery || gallery.length === 0) return null;
+
+  const photos = gallery.map(galleryPhotoPath);
+  const duoPhoto = photos[1];
+  const fullBleedPhoto = photos[2] || photos[0];
+  const gridPhotos = photos.slice(3, 7);
+  const finalPhoto = photos[photos.length - 1];
+
+  return (
+    <>
+      {duoPhoto && (
+        <section className="photo-duo section" aria-label={t.galleryTitle}>
+          <div className="container photo-duo__inner">
+            <Reveal className="photo-duo__frame" direction="right">
+              <PhotoFrame src={duoPhoto} alt="A moment together" className="photo-duo__img" />
+            </Reveal>
+            <Reveal className="photo-duo__copy" direction="left" delay={0.15}>
+              <span className="eyebrow">{wedding.hashtag || t.galleryTitle}</span>
+              <p className="photo-duo__quote">&ldquo;{wedding.message}&rdquo;</p>
+            </Reveal>
+          </div>
+        </section>
+      )}
+
+      {fullBleedPhoto && (
+        <section className="photo-full" aria-hidden="false">
+          <motion.div
+            className="photo-full__media"
+            initial={{ scale: 1.1 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: reducedMotion ? 0 : 1.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <PhotoFrame src={fullBleedPhoto} alt="Together" className="photo-full__img" />
+          </motion.div>
+        </section>
+      )}
+
+      {gridPhotos.length > 0 && (
+        <section className="photo-grid section" aria-label={t.galleryTitle}>
+          <div className="container">
+            <Reveal className="photo-grid__title">
+              <span className="eyebrow">{t.galleryTitle}</span>
+            </Reveal>
+            <div className="photo-grid__items">
+              {gridPhotos.map((photo, index) => (
+                <div
+                  key={photo + index}
+                  className={`photo-grid__cell ${index % 2 === 1 ? "photo-grid__cell--shift" : ""}`}
+                >
+                  <Reveal as="div" className="photo-grid__item" delay={index * 0.12} direction="up">
+                    <PhotoFrame src={photo} alt={`Wedding moment ${index + 1}`} className="photo-grid__img" />
+                  </Reveal>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {finalPhoto && (
+        <section className="photo-final">
+          <Reveal className="photo-final__frame" direction="zoom" duration={1.2}>
+            <PhotoFrame src={finalPhoto} alt="The couple" className="photo-final__img" />
+            <div className="photo-final__scrim" aria-hidden="true" />
+          </Reveal>
+        </section>
+      )}
+    </>
+  );
+}

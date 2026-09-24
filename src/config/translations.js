@@ -1,0 +1,78 @@
+// ============================================================================
+// TRANSLATIONS — English / Arabic
+// ----------------------------------------------------------------------------
+// Add or edit strings here. Every piece of UI chrome (buttons, labels,
+// section titles) is pulled from this file so the whole layout can switch
+// language + direction (LTR / RTL) at once. Wedding-specific facts (names,
+// date, venue...) live in wedding.js instead, since they're the same in
+// both languages unless you translate them here too.
+// ============================================================================
+
+export const translations = {
+  en: {
+    dir: "ltr",
+    openInvitation: "Open Invitation",
+    invitationHint: "Tap to begin",
+    heroKicker: "Two hearts.",
+    heroTitle: "One beautiful story.",
+    ourStory: "Our Story",
+    storyKicker: "It all started with a simple moment...",
+    weddingDetails: "Wedding Details",
+    detailsKicker: "Save the Date",
+    dateLabel: "Date",
+    timeLabel: "Time",
+    venueLabel: "Venue",
+    locationLabel: "Location",
+    getDirections: "Get Directions",
+    countdownTitle: "Counting down to forever",
+    days: "Days",
+    hours: "Hours",
+    minutes: "Minutes",
+    seconds: "Seconds",
+    todayMessage: "Today is the day",
+    rsvpTitle: "We would love to see you",
+    rsvpSubtitle: "Please confirm your attendance.",
+    rsvpButton: "RSVP",
+    locationTitle: "Join Us",
+    openInMaps: "Open in Google Maps",
+    galleryTitle: "Our Moments",
+    footerThanks: "With love and gratitude",
+    musicPlaying: "Wedding Music",
+    musicPaused: "Music Paused",
+    language: "العربية",
+  },
+  ar: {
+    dir: "rtl",
+    openInvitation: "افتح الدعوة",
+    invitationHint: "اضغط للبدء",
+    heroKicker: "قلبان",
+    heroTitle: "وقصة جميلة واحدة",
+    ourStory: "قصتنا",
+    storyKicker: "بدأ كل شيء بلحظة بسيطة...",
+    weddingDetails: "تفاصيل الزفاف",
+    detailsKicker: "احفظوا التاريخ",
+    dateLabel: "التاريخ",
+    timeLabel: "الوقت",
+    venueLabel: "المكان",
+    locationLabel: "الموقع",
+    getDirections: "الاتجاهات",
+    countdownTitle: "العد التنازلي لبداية الأبد",
+    days: "أيام",
+    hours: "ساعات",
+    minutes: "دقائق",
+    seconds: "ثواني",
+    todayMessage: "اليوم هو اليوم",
+    rsvpTitle: "يسعدنا حضوركم",
+    rsvpSubtitle: "يرجى تأكيد حضوركم.",
+    rsvpButton: "تأكيد الحضور",
+    locationTitle: "انضموا إلينا",
+    openInMaps: "فتح في خرائط جوجل",
+    galleryTitle: "لحظاتنا",
+    footerThanks: "بكل الحب والامتنان",
+    musicPlaying: "موسيقى الزفاف",
+    musicPaused: "الموسيقى متوقفة",
+    language: "English",
+  },
+};
+
+export const defaultLanguage = "en";

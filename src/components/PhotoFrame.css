@@ -1,0 +1,22 @@
+.photo-frame {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--color-cream-deep);
+}
+
+.photo-frame--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #241f19, #3a2f24);
+  border: 1px solid var(--color-line-dark);
+}
+
+.photo-frame__mark {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  letter-spacing: 0.3em;
+  color: var(--color-gold-light);
+  opacity: 0.75;
+}
