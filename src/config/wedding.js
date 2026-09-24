@@ -85,10 +85,10 @@ export const wedding = {
 // ============================================================================
 
 export const gallery = [
-  "engagement-neon.jpg", // hero opener — top of the site
+  "painted-portrait.jpg", // hero opener — top of the site, the oil portrait
   "engagement-elegant.jpg", // photo + quote pairing
-  "rooftop-night.jpg", // full-bleed
-  "casual-selfie.jpg", // grid
+  "casual-selfie.jpg", // full-bleed (landscape photo — crops cleanly)
+  "rooftop-night.jpg", // grid
   "snow-day.jpg", // grid
-  "painted-portrait.jpg", // closing photo before wedding details
+  "engagement-neon.jpg", // closing photo before wedding details
 ];

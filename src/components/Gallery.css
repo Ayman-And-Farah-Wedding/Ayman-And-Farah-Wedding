@@ -61,6 +61,13 @@
   height: 100%;
 }
 
+.photo-full__img {
+  /* Biases the crop toward the top of the photo rather than dead-center —
+     this band is short and wide, so a true center crop tends to cut off
+     faces in portrait-oriented photos. */
+  object-position: 50% 22%;
+}
+
 /* ---- Staggered grid ------------------------------------------------------ */
 
 .photo-grid {

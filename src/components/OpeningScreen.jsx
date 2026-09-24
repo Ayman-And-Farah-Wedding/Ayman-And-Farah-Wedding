@@ -1,10 +1,8 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
-import { wedding, gallery } from "../config/wedding";
+import { wedding } from "../config/wedding";
 import { useLanguage } from "../context/LanguageContext";
 import { useReducedMotion } from "../hooks/useReducedMotion";
-import { galleryPhotoPath } from "../utils/assetPath";
-import { PhotoFrame } from "./PhotoFrame";
 import { SprigDivider, CornerFlourish } from "./Ornament";
 import "./OpeningScreen.css";
 
@@ -39,7 +37,6 @@ export function OpeningScreen({ onOpen }) {
   const { t } = useLanguage();
   const reducedMotion = useReducedMotion();
   const particles = useParticles();
-  const portrait = gallery[0];
 
   return (
     <motion.div
@@ -80,17 +77,6 @@ export function OpeningScreen({ onOpen }) {
         initial="hidden"
         animate="show"
       >
-        {portrait && (
-          <motion.div className="opening__portrait" variants={item}>
-            <PhotoFrame
-              src={galleryPhotoPath(portrait)}
-              alt={`${wedding.groom} & ${wedding.bride}`}
-              className="opening__portrait-img"
-              eager
-            />
-          </motion.div>
-        )}
-
         <motion.span className="opening__eyebrow" variants={item}>
           {t.invitationHint}
         </motion.span>
