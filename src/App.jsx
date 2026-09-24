@@ -6,6 +6,7 @@ import { MusicProvider, useMusic } from "./context/MusicContext";
 import { OpeningScreen } from "./components/OpeningScreen";
 import { MusicPlayer } from "./components/MusicPlayer";
 import { LanguageToggle } from "./components/LanguageToggle";
+import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { Story } from "./components/Story";
 import { Gallery } from "./components/Gallery";
@@ -46,6 +47,7 @@ function Invitation() {
           and unclickable until the guest actually opens the invitation. */}
       <div inert={!opened}>
         <LanguageToggle />
+        <Nav />
 
         <main id="main-content">
           <Hero />
