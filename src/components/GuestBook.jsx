@@ -6,6 +6,7 @@ import { galleryPhotoPath } from "../utils/assetPath";
 import { PhotoFrame } from "./PhotoFrame";
 import { Reveal } from "./Reveal";
 import { SprigDivider, CornerFlourish } from "./Ornament";
+import { Sparkle } from "./Sparkle";
 import "./GuestBook.css";
 
 function timeAgo(date) {
@@ -65,7 +66,10 @@ export function GuestBook() {
               />
             </div>
           )}
-          <span className="eyebrow">{t.rsvpButton}</span>
+          <span className="eyebrow">
+            {t.rsvpButton}
+            <Sparkle />
+          </span>
           <h2 className="section-title" id="guestbook-title">
             {t.rsvpTitle}
           </h2>

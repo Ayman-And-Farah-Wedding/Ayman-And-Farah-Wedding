@@ -14,6 +14,7 @@ import { WeddingDetails } from "./components/WeddingDetails";
 import { Location } from "./components/Location";
 import { GuestBook } from "./components/GuestBook";
 import { Footer } from "./components/Footer";
+import { fireConfetti } from "./utils/confetti";
 
 function Invitation() {
   const [opened, setOpened] = useState(false);
@@ -29,6 +30,7 @@ function Invitation() {
   const handleOpen = () => {
     start();
     setOpened(true);
+    fireConfetti();
   };
 
   useEffect(() => {
@@ -50,7 +52,7 @@ function Invitation() {
         <Nav />
 
         <main id="main-content">
-          <Hero />
+          <Hero opened={opened} />
           <Story />
           <Gallery />
           <WeddingDetails />

@@ -4,6 +4,7 @@ import { galleryPhotoPath } from "../utils/assetPath";
 import { PhotoFrame } from "./PhotoFrame";
 import { Reveal } from "./Reveal";
 import { SprigDivider, CornerFlourish } from "./Ornament";
+import { Sparkle } from "./Sparkle";
 import "./Gallery.css";
 
 export function Gallery() {
@@ -41,7 +42,10 @@ export function Gallery() {
         <section className="photo-grid section" aria-label={t.galleryTitle}>
           <div className="container">
             <Reveal className="photo-grid__title">
-              <span className="eyebrow">{t.galleryTitle}</span>
+              <span className="eyebrow">
+                {t.galleryTitle}
+                <Sparkle />
+              </span>
               <SprigDivider className="photo-grid__divider" />
             </Reveal>
             <div className="photo-grid__items">

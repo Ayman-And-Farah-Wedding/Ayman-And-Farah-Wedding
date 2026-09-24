@@ -7,7 +7,7 @@ import { PhotoFrame } from "./PhotoFrame";
 import { SprigDivider } from "./Ornament";
 import "./Hero.css";
 
-export function Hero() {
+export function Hero({ opened }) {
   const { t } = useLanguage();
   const reducedMotion = useReducedMotion();
 
@@ -16,9 +16,9 @@ export function Hero() {
       {wedding.heroPhoto && (
         <motion.div
           className="hero__banner"
-          initial={{ scale: 1.08 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: reducedMotion ? 0 : 2.4, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0, scale: 1.15, filter: "blur(14px)" }}
+          animate={opened ? { opacity: 1, scale: 1, filter: "blur(0px)" } : {}}
+          transition={{ duration: reducedMotion ? 0.01 : 1.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <PhotoFrame
             src={galleryPhotoPath(wedding.heroPhoto)}
@@ -32,10 +32,13 @@ export function Hero() {
       <div className="container container--narrow">
         <motion.div
           className="hero__text"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0, y: 26 }}
+          animate={opened ? { opacity: 1, y: 0 } : {}}
+          transition={{
+            duration: reducedMotion ? 0.01 : 0.9,
+            delay: reducedMotion ? 0 : 0.95,
+            ease: [0.16, 1, 0.3, 1],
+          }}
         >
           <span className="hero__kicker">{t.heroKicker}</span>
           <h2 className="hero__title">{t.heroTitle}</h2>

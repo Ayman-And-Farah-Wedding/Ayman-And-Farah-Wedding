@@ -2,6 +2,7 @@ import { wedding } from "../config/wedding";
 import { useLanguage } from "../context/LanguageContext";
 import { Reveal } from "./Reveal";
 import { SprigDivider } from "./Ornament";
+import { Sparkle } from "./Sparkle";
 import { IconPin } from "./icons";
 import "./Location.css";
 
@@ -24,6 +25,7 @@ export function Location() {
         <Reveal className="location__intro">
           <span className="eyebrow">
             <IconPin className="location__pin" /> {t.locationTitle}
+            <Sparkle />
           </span>
           <h2 className="section-title" id="location-title">
             {wedding.venue}

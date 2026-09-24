@@ -1,0 +1,28 @@
+.sparkle {
+  position: absolute;
+  top: -0.75rem;
+  inset-inline-end: -1rem;
+  width: 2.4rem;
+  height: 1.6rem;
+  pointer-events: none;
+}
+
+.sparkle__star {
+  position: absolute;
+  fill: var(--color-gold);
+}
+
+.sparkle__star:first-child {
+  top: 0;
+  inset-inline-start: 0;
+  width: 1rem;
+  height: 1rem;
+}
+
+.sparkle__star:last-child {
+  top: 0.6rem;
+  inset-inline-start: 1.1rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  opacity: 0.7;
+}

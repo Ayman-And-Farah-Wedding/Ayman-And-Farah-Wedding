@@ -3,7 +3,8 @@ import { useLanguage } from "../context/LanguageContext";
 import { Reveal } from "./Reveal";
 import { Countdown } from "./Countdown";
 import { SprigDivider } from "./Ornament";
-import { IconCalendar, IconClock, IconVenue, IconPin } from "./icons";
+import { Sparkle } from "./Sparkle";
+import { IconCalendar, IconClock, IconVenue, IconHall, IconPin } from "./icons";
 import "./WeddingDetails.css";
 
 export function WeddingDetails() {
@@ -13,6 +14,7 @@ export function WeddingDetails() {
     { icon: IconCalendar, label: t.dateLabel, value: wedding.date },
     { icon: IconClock, label: t.timeLabel, value: wedding.ceremonyTime },
     { icon: IconVenue, label: t.venueLabel, value: wedding.venue },
+    ...(wedding.hall ? [{ icon: IconHall, label: t.hallLabel, value: wedding.hall }] : []),
     { icon: IconPin, label: t.locationLabel, value: wedding.address },
   ];
 
@@ -20,7 +22,10 @@ export function WeddingDetails() {
     <section className="details section section--dark" id="details">
       <div className="container container--narrow details__inner">
         <Reveal className="details__intro">
-          <span className="eyebrow">{t.detailsKicker}</span>
+          <span className="eyebrow">
+            {t.detailsKicker}
+            <Sparkle />
+          </span>
           <h2 className="section-title">{t.weddingDetails}</h2>
           <SprigDivider className="details__divider" />
         </Reveal>

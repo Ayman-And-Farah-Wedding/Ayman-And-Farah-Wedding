@@ -94,6 +94,7 @@ ul {
 /* ---- Typography helpers ------------------------------------------------ */
 
 .eyebrow {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.75em;

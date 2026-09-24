@@ -29,6 +29,17 @@ export function IconClock(props) {
   );
 }
 
+export function IconHall(props) {
+  return (
+    <svg {...base} {...props} aria-hidden="true">
+      <path d="M4 20h16" />
+      <path d="M5.5 20V9.5L12 4l6.5 5.5V20" />
+      <path d="M9.5 20v-6h5v6" />
+      <path d="M12 4v2.2" />
+    </svg>
+  );
+}
+
 export function IconPin(props) {
   return (
     <svg {...base} {...props} aria-hidden="true">

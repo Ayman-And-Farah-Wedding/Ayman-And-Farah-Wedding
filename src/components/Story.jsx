@@ -4,6 +4,7 @@ import { galleryPhotoPath } from "../utils/assetPath";
 import { PhotoFrame } from "./PhotoFrame";
 import { Reveal } from "./Reveal";
 import { SprigDivider, CornerFlourish } from "./Ornament";
+import { Sparkle } from "./Sparkle";
 import "./Story.css";
 
 export function Story() {
@@ -20,7 +21,10 @@ export function Story() {
     <section className="story section" id="story" aria-labelledby="story-title">
       <div className="container container--narrow">
         <Reveal className="story__intro">
-          <span className="eyebrow">{t.ourStory}</span>
+          <span className="eyebrow">
+            {t.ourStory}
+            <Sparkle />
+          </span>
           <h2 className="section-title" id="story-title">
             {t.storyKicker}
           </h2>

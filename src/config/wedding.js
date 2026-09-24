@@ -25,6 +25,7 @@ export const wedding = {
 
   // ---- Venue --------------------------------------------------------------
   venue: "Dar Dobbat Al-Madfa'eya",
+  hall: "Queen Hall",
   address: "Cairo, Egypt",
   mapsUrl:
     "https://www.google.com/maps/place/%D8%AF%D8%A7%D8%B1+%D8%B6%D8%A8%D8%A7%D8%B7+%D8%A7%D9%84%D9%85%D8%AF%D9%81%D8%B9%D9%8A%D8%A9%E2%80%AD/@30.0803783,31.3541828,17z/data=!3m1!4b1!4m6!3m5!1s0x14583e1b58b407ff:0xfd07431ae98a939e!8m2!3d30.0803783!4d31.3541828!16s%2Fg%2F1vnrh9vt",
@@ -93,6 +94,6 @@ export const gallery = [
   "engagement-elegant.jpg", // photo + quote pairing
   "casual-selfie.jpg", // grid
   "rooftop-night.jpg", // grid
-  "painted-portrait.jpg", // grid
+  "night-out.jpg", // grid
   "engagement-neon.jpg", // closing photo before wedding details
 ];
