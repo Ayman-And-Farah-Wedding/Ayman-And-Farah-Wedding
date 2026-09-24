@@ -28,7 +28,7 @@ function timeAgo(date) {
 export function GuestBook() {
   const { t } = useLanguage();
   const { messages, loading, enabled, submitMessage } = useGuestbook();
-  const [form, setForm] = useState({ name: "", attending: "yes", message: "", honeypot: "" });
+  const [form, setForm] = useState({ name: "", message: "", honeypot: "" });
   const [status, setStatus] = useState("idle"); // idle | submitting | done | error
 
   const thankYouPhoto = gallery[gallery.length - 1];
@@ -41,7 +41,7 @@ export function GuestBook() {
     setStatus("submitting");
     try {
       await submitMessage(form);
-      setForm({ name: "", attending: "yes", message: "", honeypot: "" });
+      setForm({ name: "", message: "", honeypot: "" });
       setStatus("done");
     } catch {
       setStatus("error");
@@ -98,32 +98,6 @@ export function GuestBook() {
                     onChange={handleChange("name")}
                     autoComplete="name"
                   />
-                </div>
-
-                <div className="guestbook__field">
-                  <span className="guestbook__field-label">{t.guestbookAttending}</span>
-                  <div className="guestbook__pills" role="radiogroup" aria-label={t.guestbookAttending}>
-                    <label className={`guestbook__pill ${form.attending === "yes" ? "is-active" : ""}`}>
-                      <input
-                        type="radio"
-                        name="attending"
-                        value="yes"
-                        checked={form.attending === "yes"}
-                        onChange={handleChange("attending")}
-                      />
-                      {t.guestbookYes}
-                    </label>
-                    <label className={`guestbook__pill ${form.attending === "no" ? "is-active" : ""}`}>
-                      <input
-                        type="radio"
-                        name="attending"
-                        value="no"
-                        checked={form.attending === "no"}
-                        onChange={handleChange("attending")}
-                      />
-                      {t.guestbookNo}
-                    </label>
-                  </div>
                 </div>
 
                 <div className="guestbook__field">

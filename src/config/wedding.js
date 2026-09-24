@@ -11,6 +11,11 @@ export const wedding = {
   groom: "Ayman",
   bride: "Farah",
 
+  // ---- Hero banner photo ---------------------------------------------------
+  // The big full-width photo at the very top of the page (a filename from
+  // public/images/gallery/). Separate from the `gallery` list below.
+  heroPhoto: "close-up-together.jpg",
+
   // ---- Date & time ------------------------------------------------------
   // "date" is shown to guests. "dateISO" drives the countdown timer and
   // MUST be in YYYY-MM-DDTHH:mm:ss format (24h clock, local wedding time).
@@ -39,10 +44,10 @@ export const wedding = {
 
   // ---- RSVP & Guest Book ----------------------------------------------------
   // The RSVP section is a native Guest Book right on the page — guests type
-  // their name, confirm attendance, and leave a wish, all without Google
-  // Forms. It needs a free Firebase project (no credit card) to store the
-  // messages. Exact click-by-click steps in WEDDING-CONTENT-GUIDE.md ->
-  // "Guest Book setup". Fill in src/config/firebase.js to turn it on.
+  // their name and a wish, all without Google Forms. It needs a free
+  // Firebase project (no credit card) to store the messages. Exact
+  // click-by-click steps in WEDDING-CONTENT-GUIDE.md -> "Guest Book setup".
+  // Fill in src/config/firebase.js to turn it on.
   //
   // rsvpUrl is only used as a fallback link if you never set up Firebase —
   // leave it empty ("") to hide the RSVP section entirely until you do.
@@ -78,17 +83,18 @@ export const wedding = {
 // GALLERY PHOTOS
 // ----------------------------------------------------------------------------
 // Add your own photos to:  public/images/gallery/
-// Then list the filenames here, in the order you want them to appear.
-// The first photo becomes the big cinematic opener, the last becomes the
-// closing photo before the wedding details — everything in between forms
-// the scrolling story. JPG, PNG, WEBP or SVG all work.
+// Then list the filenames here, in the order you want them to appear. The
+// first photo pairs with your message, the last becomes the closing photo
+// before the wedding details — everything in between forms the scrolling
+// story (one full-bleed photo, then a small centered grid). JPG, PNG, WEBP
+// or SVG all work.
 // ============================================================================
 
 export const gallery = [
-  "painted-portrait.jpg", // hero opener — top of the site, the oil portrait
   "engagement-elegant.jpg", // photo + quote pairing
   "casual-selfie.jpg", // full-bleed (landscape photo — crops cleanly)
   "rooftop-night.jpg", // grid
   "snow-day.jpg", // grid
+  "painted-portrait.jpg", // grid
   "engagement-neon.jpg", // closing photo before wedding details
 ];

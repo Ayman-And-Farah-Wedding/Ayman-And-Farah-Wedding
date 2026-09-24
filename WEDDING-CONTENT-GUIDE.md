@@ -157,11 +157,10 @@ plaît* — "please respond." It's just the standard way of asking a guest to
 confirm whether they're coming.
 
 The RSVP section is a real **Guest Book right on the page** — no Google
-Forms, no popup, no redirect. Guests type their name, confirm attendance,
-and leave a written wish, and everyone can scroll down and read the wall of
-wishes other guests have left (a bit like a real paper guest book at the
-venue). It needs a free place to store those messages, which is what the
-steps below set up.
+Forms, no popup, no redirect. Guests type their name and a written wish,
+and everyone can scroll down and read the wall of wishes other guests have
+left (a bit like a real paper guest book at the venue). It needs a free
+place to store those messages, which is what the steps below set up.
 
 **Why Firebase?** It's Google's free app-backend service — free tier, no
 credit card, and its free quota (about 20,000 writes/day) is far more than
@@ -211,8 +210,7 @@ just works.
                        && request.resource.data.name.size() <= 60
                        && request.resource.data.message is string
                        && request.resource.data.message.size() > 0
-                       && request.resource.data.message.size() <= 500
-                       && request.resource.data.attending in ["yes", "no", ""];
+                       && request.resource.data.message.size() <= 500;
          allow update, delete: if false;
        }
      }
@@ -228,10 +226,9 @@ just works.
 
 **Where do messages go / how do I moderate them?** In the Firebase console,
 go to **Firestore Database → Data** — every submission appears there as a
-row, in real time, with the guest's name, message, and attendance answer.
-If something inappropriate gets posted, you can delete that one row
-directly there (deleting isn't possible from the public site itself, by
-design).
+row, in real time, with the guest's name and message. If something
+inappropriate gets posted, you can delete that one row directly there
+(deleting isn't possible from the public site itself, by design).
 
 **Optional fallback:** if you don't want to set up Firebase right now,
 leave `src/config/firebase.js` untouched and instead set `rsvpUrl` in

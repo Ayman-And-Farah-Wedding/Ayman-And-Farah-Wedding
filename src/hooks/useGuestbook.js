@@ -57,7 +57,7 @@ export function useGuestbook() {
 
   // `honeypot` is a hidden field real guests never fill in — if it has a
   // value, the submission came from a bot and is silently dropped.
-  const submitMessage = async ({ name, attending, message, honeypot }) => {
+  const submitMessage = async ({ name, message, honeypot }) => {
     if (!guestbookEnabled) throw new Error("Guest book is not configured");
     if (honeypot) return;
 
@@ -68,7 +68,6 @@ export function useGuestbook() {
     const { db, firestore } = await loadFirestore();
     await firestore.addDoc(firestore.collection(db, COLLECTION), {
       name: cleanName,
-      attending: attending === "yes" || attending === "no" ? attending : "",
       message: cleanMessage,
       createdAt: firestore.serverTimestamp(),
     });

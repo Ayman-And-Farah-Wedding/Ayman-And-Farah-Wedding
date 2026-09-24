@@ -2,6 +2,11 @@
 
 .photo-duo {
   background: var(--color-cream);
+  /* The frame's corner flourishes sit slightly outside the frame itself
+     (by design); this keeps that bleed from ever causing page-level
+     horizontal scroll on narrow viewports, without touching any ancestor
+     of the sticky nav. */
+  overflow-x: hidden;
 }
 
 .photo-duo__inner {
@@ -72,6 +77,7 @@
 
 .photo-grid {
   background: var(--color-cream);
+  overflow-x: hidden;
 }
 
 .photo-grid__title {
@@ -84,15 +90,24 @@
 }
 
 .photo-grid__items {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(0.6rem, 2vw, 1.25rem);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 1.75rem);
+}
+
+.photo-grid__cell {
+  position: relative;
+  width: clamp(9.5rem, 22vw, 13.5rem);
+  padding: 0.5rem;
+  background: var(--color-paper);
+  border: 1px solid var(--color-gold);
+  box-shadow: 0 14px 34px rgba(74, 89, 64, 0.12);
 }
 
 .photo-grid__item {
   aspect-ratio: 3 / 4;
   overflow: hidden;
-  border: 1px solid var(--color-line);
 }
 
 .photo-grid__cell--shift {
@@ -110,9 +125,6 @@
 }
 
 @media (max-width: 760px) {
-  .photo-grid__items {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .photo-grid__cell--shift {
     margin-top: 0;
   }
@@ -122,6 +134,7 @@
 
 .photo-final {
   background: var(--color-cream-deep);
+  overflow-x: hidden;
 }
 
 .photo-final__frame {

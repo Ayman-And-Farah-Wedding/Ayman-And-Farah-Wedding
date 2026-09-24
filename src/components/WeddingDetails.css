@@ -1,3 +1,7 @@
+.details {
+  overflow-x: hidden;
+}
+
 .details__inner {
   display: flex;
   flex-direction: column;

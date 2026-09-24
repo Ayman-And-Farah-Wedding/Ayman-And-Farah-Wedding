@@ -15,12 +15,12 @@ export function Gallery() {
   if (!wedding.showGallery || gallery.length === 0) return null;
 
   const photos = gallery.map(galleryPhotoPath);
-  const duoPhoto = photos[1];
-  const fullBleedPhoto = photos[2] || photos[0];
+  const duoPhoto = photos[0];
+  const fullBleedPhoto = photos[1] || photos[0];
   // Grid takes everything after the full-bleed photo, reserving the very
   // last photo for the closing section below so nothing repeats twice,
   // regardless of how many photos are actually in the gallery.
-  const gridPhotos = photos.slice(3, Math.max(3, photos.length - 1));
+  const gridPhotos = photos.slice(2, Math.max(2, photos.length - 1));
   const finalPhoto = photos[photos.length - 1];
 
   return (
@@ -64,14 +64,19 @@ export function Gallery() {
             </Reveal>
             <div className="photo-grid__items">
               {gridPhotos.map((photo, index) => (
-                <div
+                <Reveal
+                  as="div"
                   key={photo + index}
                   className={`photo-grid__cell ${index % 2 === 1 ? "photo-grid__cell--shift" : ""}`}
+                  delay={index * 0.12}
+                  direction="up"
                 >
-                  <Reveal as="div" className="photo-grid__item" delay={index * 0.12} direction="up">
+                  <CornerFlourish className="corner-flourish--tl" />
+                  <CornerFlourish className="corner-flourish--br" />
+                  <div className="photo-grid__item">
                     <PhotoFrame src={photo} alt={`Wedding moment ${index + 1}`} className="photo-grid__img" />
-                  </Reveal>
-                </div>
+                  </div>
+                </Reveal>
               ))}
             </div>
           </div>
