@@ -23,14 +23,32 @@ export const wedding = {
   address: "Cairo, Egypt",
   mapsUrl: "https://maps.google.com/?q=Grand+Hotel+Cairo",
 
+  // Optional: for a pixel-precise map pin (instead of a text search for
+  // venue+address, which usually works fine but can be off for venues with
+  // generic names). In Google Maps: search your venue -> Share -> Embed a
+  // map -> Copy HTML -> paste ONLY the src="..." URL here. Leave empty to
+  // use the automatic text-search map.
+  mapsEmbedUrl: "",
+
   // ---- Messages -----------------------------------------------------------
   invitationLine: "You are invited to celebrate our wedding",
   message:
     "We would be honored to have you celebrate this special day with us. Your presence would mean the world as we begin our forever.",
 
-  // ---- RSVP -----------------------------------------------------------------
-  // Paste a free Google Form link (or any URL) here. Leave empty ("") to
-  // hide the RSVP button.
+  // ---- RSVP & guest wishes ----------------------------------------------------
+  // RECOMMENDED: create a free Google Form with 3 questions — Name,
+  // "Will you attend?", and "Leave your wishes for us" — then paste its
+  // EMBED link here. When a guest clicks "RSVP" they'll see a popup with
+  // your photo, a thank-you message, and that form right on the site —
+  // every response (including their written wishes) is saved automatically
+  // to a Google Sheet only you can see. Exact steps in
+  // WEDDING-CONTENT-GUIDE.md -> "RSVP & saving guest wishes".
+  rsvpFormEmbedUrl: "",
+
+  // Fallback link (opens in a new tab). Used automatically if you leave
+  // rsvpFormEmbedUrl empty above, and always offered as a secondary "open
+  // full page" option inside the popup. Leave both empty ("") to hide the
+  // RSVP button entirely.
   rsvpUrl: "https://forms.google.com/",
 
   // ---- Social ---------------------------------------------------------------

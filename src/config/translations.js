@@ -33,6 +33,11 @@ export const translations = {
     rsvpTitle: "We would love to see you",
     rsvpSubtitle: "Please confirm your attendance.",
     rsvpButton: "RSVP",
+    rsvpModalTitle: "Thank You For Being Here",
+    rsvpModalMessage:
+      "We can't wait to celebrate with you! Please let us know you'll be there and leave us your warmest wishes for our big day 💛",
+    rsvpModalClose: "Close",
+    rsvpOpenFullForm: "Prefer a full page? Open form",
     locationTitle: "Join Us",
     openInMaps: "Open in Google Maps",
     galleryTitle: "Our Moments",
@@ -65,6 +70,11 @@ export const translations = {
     rsvpTitle: "يسعدنا حضوركم",
     rsvpSubtitle: "يرجى تأكيد حضوركم.",
     rsvpButton: "تأكيد الحضور",
+    rsvpModalTitle: "شكرًا لتواجدكم معنا",
+    rsvpModalMessage:
+      "لا يسعنا الانتظار للاحتفال معكم! يرجى تأكيد حضوركم وترك أمنياتكم الدافئة ليومنا الكبير 💛",
+    rsvpModalClose: "إغلاق",
+    rsvpOpenFullForm: "تفضلون صفحة كاملة؟ افتحوا النموذج",
     locationTitle: "انضموا إلينا",
     openInMaps: "فتح في خرائط جوجل",
     galleryTitle: "لحظاتنا",

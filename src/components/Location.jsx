@@ -5,6 +5,11 @@ import { IconPin } from "./icons";
 import "./Location.css";
 
 function embedUrl() {
+  // If you pasted a precise embed link into wedding.js -> mapsEmbedUrl, use
+  // that (pixel-accurate pin). Otherwise fall back to a text search built
+  // from venue + address, which works with zero setup but can be a little
+  // less precise for venues with generic names.
+  if (wedding.mapsEmbedUrl) return wedding.mapsEmbedUrl;
   const query = encodeURIComponent(`${wedding.venue}, ${wedding.address}`);
   return `https://www.google.com/maps?q=${query}&output=embed`;
 }

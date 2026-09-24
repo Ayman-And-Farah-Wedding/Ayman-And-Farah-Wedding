@@ -69,7 +69,7 @@ shots.forEach((shot, i) => {
     w: shot.w,
     h: shot.h,
     colors: palettes[i % palettes.length],
-    initials: "A · S",
+    initials: "A · F",
     seed: i + 1,
   });
   writeFileSync(`public/images/gallery/${shot.name}.svg`, svg, "utf8");

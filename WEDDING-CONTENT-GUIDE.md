@@ -121,6 +121,8 @@ address: "Cairo, Egypt",
 
 ## Change the Google Maps location
 
+**Basic setup (works immediately, no extra steps):**
+
 1. Open Google Maps, search for your venue, click **Share**, and copy the link.
 2. Paste it here in `src/config/wedding.js`:
 
@@ -128,26 +130,65 @@ address: "Cairo, Egypt",
 mapsUrl: "https://maps.google.com/?q=Grand+Hotel+Cairo",
 ```
 
-This is used both by the "Get Directions" button and the "Open in Google
-Maps" button. The embedded map preview on the page updates automatically
-based on your `venue` and `address` — no separate setup needed.
+This is used by the "Get Directions" and "Open in Google Maps" buttons. The
+embedded map preview on the page also builds itself automatically from your
+`venue` + `address` text — nothing else to do.
+
+**For a pixel-precise pin** (if the automatic map isn't landing exactly on
+your venue — common for venues with generic names):
+
+1. In Google Maps, search your venue, click **Share** → **Embed a map**.
+2. Click **Copy HTML**. You'll get something like
+   `<iframe src="https://www.google.com/maps/embed?pb=..." ...></iframe>`.
+3. Copy only the part inside `src="..."` and paste it here:
+
+```js
+mapsEmbedUrl: "https://www.google.com/maps/embed?pb=...",
+```
+
+Leave it as `""` to keep using the automatic text-search map.
 
 ---
 
-## Change the RSVP link
+## RSVP & saving guest wishes
 
-The easiest option is a free Google Form:
+**What does "RSVP" mean?** It's short for the French *répondez s'il vous
+plaît* — "please respond." It's just the standard way of asking a guest to
+confirm whether they're coming.
 
-1. Go to [forms.google.com](https://forms.google.com), create a form asking
-   guests to confirm attendance.
-2. Click **Send**, copy the link.
-3. Paste it here:
+This site can do more than just link out to a form — tapping **RSVP** opens
+a popup right on the site with your photo, a thank-you message, and a form
+where guests can confirm attendance *and* leave you a written wish. Every
+response is saved automatically to a Google Sheet only you can see.
+
+**Setup (about 5 minutes):**
+
+1. Go to [forms.google.com](https://forms.google.com) and create a new form.
+2. Add 3 questions, for example:
+   - **Name** (short answer)
+   - **Will you attend?** (multiple choice: Yes / No)
+   - **Leave your wishes for us** (paragraph)
+3. Click the **Send** button (top right) → click the **embed icon** `<>` →
+   copy the URL inside the box (starts with `https://docs.google.com/forms/d/e/...`).
+4. Paste it here in `src/config/wedding.js`:
 
 ```js
-rsvpUrl: "https://forms.google.com/your-form-link",
+rsvpFormEmbedUrl: "https://docs.google.com/forms/d/e/your-form-id/viewform?embedded=true",
 ```
 
-Leave it as `""` (empty quotes) if you don't want an RSVP button shown at all.
+That's it — the RSVP button now opens the popup with the embedded form
+inside it.
+
+**Where do guest wishes go?** Open your form in Google Forms → click the
+**Responses** tab → click the green Sheets icon to create a linked Google
+Sheet. Every name, attendance answer, and written wish a guest submits
+appears there automatically, in real time, forever, for free.
+
+**Optional:** `rsvpUrl` (a plain link) still works as a fallback — if you
+leave `rsvpFormEmbedUrl` empty, the RSVP button just opens `rsvpUrl` in a
+new tab instead of the popup. It's also always shown as a secondary "open
+full page" link inside the popup. Leave both empty (`""`) to hide the RSVP
+button entirely.
 
 ---
 
@@ -253,5 +294,6 @@ automatically when Arabic is selected.
 - [ ] Real photos added to `public/images/gallery/` and listed in `gallery`
 - [ ] Real song added to `public/audio/wedding-song.mp3`
 - [ ] `mapsUrl` points to your actual venue
-- [ ] `rsvpUrl` points to your actual form
+- [ ] `rsvpFormEmbedUrl` (or `rsvpUrl`) points to your actual RSVP form
+- [ ] Opened the RSVP popup yourself and submitted a test response — check it landed in your Google Sheet
 - [ ] Opened the site on your own phone once to double check
