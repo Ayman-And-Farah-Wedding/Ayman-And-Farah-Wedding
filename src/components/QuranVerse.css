@@ -1,0 +1,32 @@
+.quran {
+  background: var(--color-cream);
+  text-align: center;
+}
+
+.quran__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quran__text {
+  /* Always the Arabic serif, regardless of the site's current language —
+     this text is never translated for display. */
+  font-family: var(--font-serif-ar);
+  font-size: clamp(1.4rem, 3.6vw, 2rem);
+  line-height: 2.1;
+  color: var(--color-ink);
+  max-width: 34ch;
+}
+
+.quran__divider {
+  margin-top: 1.5rem;
+}
+
+.quran__reference {
+  margin-top: 1rem;
+  font-family: var(--font-sans-ar);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--color-gold-deep);
+}

@@ -43,6 +43,14 @@ export const wedding = {
   message:
     "We would be honored to have you celebrate this special day with us. Your presence would mean the world as we begin our forever.",
 
+  // ---- Quranic verse (optional) --------------------------------------------
+  // Always shown in Arabic script regardless of the site's current
+  // language — Quranic text isn't translated for display. Leave
+  // quranVerse empty ("") to hide this section entirely.
+  quranVerse:
+    "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً",
+  quranReference: "سورة الروم — الآية ٢١",
+
   // ---- RSVP & Guest Book ----------------------------------------------------
   // The RSVP section is a native Guest Book right on the page — guests type
   // their name and a wish, all without Google Forms. It needs a free

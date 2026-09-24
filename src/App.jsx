@@ -8,6 +8,7 @@ import { MusicPlayer } from "./components/MusicPlayer";
 import { LanguageToggle } from "./components/LanguageToggle";
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
+import { QuranVerse } from "./components/QuranVerse";
 import { Story } from "./components/Story";
 import { Gallery } from "./components/Gallery";
 import { WeddingDetails } from "./components/WeddingDetails";
@@ -56,6 +57,7 @@ function Invitation() {
 
         <main id="main-content">
           <Hero opened={opened} />
+          <QuranVerse />
           <Story />
           <Gallery />
           <WeddingDetails />
