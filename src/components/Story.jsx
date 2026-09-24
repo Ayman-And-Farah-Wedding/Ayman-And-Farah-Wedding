@@ -1,13 +1,20 @@
 import { wedding } from "../config/wedding";
 import { useLanguage } from "../context/LanguageContext";
+import { galleryPhotoPath } from "../utils/assetPath";
+import { PhotoFrame } from "./PhotoFrame";
 import { Reveal } from "./Reveal";
-import { SprigDivider } from "./Ornament";
+import { SprigDivider, CornerFlourish } from "./Ornament";
 import "./Story.css";
 
 export function Story() {
   const { t } = useLanguage();
 
-  if (!wedding.showStory || !wedding.story?.length) return null;
+  if (!wedding.showStory || !wedding.story) return null;
+
+  const paragraphs = wedding.story
+    .split(/\n\s*\n/)
+    .map((p) => p.trim())
+    .filter(Boolean);
 
   return (
     <section className="story section" id="story" aria-labelledby="story-title">
@@ -20,24 +27,23 @@ export function Story() {
           <SprigDivider className="story__divider" />
         </Reveal>
 
-        <ol className="story__timeline">
-          {wedding.story.map((chapter, index) => (
-            <Reveal
-              as="li"
-              key={chapter.year}
-              className="story__item"
-              delay={index * 0.08}
-              direction={index % 2 === 0 ? "right" : "left"}
-            >
-              <span className="story__year">{chapter.year}</span>
-              <div className="story__line" aria-hidden="true" />
-              <div className="story__body">
-                <h3 className="story__title">{chapter.title}</h3>
-                <p className="story__text">{chapter.text}</p>
-              </div>
-            </Reveal>
+        <Reveal className="story__text" delay={0.1}>
+          {paragraphs.map((p, i) => (
+            <p key={i}>{p}</p>
           ))}
-        </ol>
+        </Reveal>
+
+        {wedding.storyPhoto && (
+          <Reveal className="story__photo" delay={0.2} direction="zoom">
+            <CornerFlourish className="corner-flourish--tl" />
+            <CornerFlourish className="corner-flourish--br" />
+            <PhotoFrame
+              src={galleryPhotoPath(wedding.storyPhoto)}
+              alt={`${wedding.groom} & ${wedding.bride}`}
+              className="story__photo-img"
+            />
+          </Reveal>
+        )}
       </div>
     </section>
   );

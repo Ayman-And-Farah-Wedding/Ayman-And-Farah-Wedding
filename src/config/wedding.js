@@ -68,24 +68,12 @@ export const wedding = {
 
   // ---- Our Story ----------------------------------------------------------------
   // Set `showStory: false` below to hide this section entirely.
+  // "story" is a free-form paragraph (or a few, separated by a blank line).
+  // "storyPhoto" is a single photo shown under the text — a filename from
+  // public/images/gallery/, same as the gallery list below.
   showStory: true,
-  story: [
-    {
-      year: "2019",
-      title: "The Beginning",
-      text: "A chance meeting, a long conversation, and the quiet feeling that something had just started.",
-    },
-    {
-      year: "2022",
-      title: "A New Chapter",
-      text: "Two lives grew into one — new dreams, new adventures, and a promise to build a future together.",
-    },
-    {
-      year: "2026",
-      title: "Forever",
-      text: "The day we say 'I do' and begin the story we've been writing for each other all along.",
-    },
-  ],
+  story: `Ayman and Farah were friends in school, but fate had something more beautiful written for them. They met again at university, and that's where the spark began. From friends to lovers, Ayman saw Farah in a different light for the first time, and from that moment, he knew she was the one. And here comes the day to celebrate their happily ever after.`,
+  storyPhoto: "engagement-formal.jpg",
 
   // ---- Gallery toggle -------------------------------------------------------------
   showGallery: true,
@@ -102,10 +90,10 @@ export const wedding = {
 // ============================================================================
 
 export const gallery = [
-  "painted-portrait.jpg", // hero opener — the painted portrait
-  "engagement-neon.jpg", // photo + quote pairing
+  "engagement-neon.jpg", // hero opener — top of the site
+  "engagement-elegant.jpg", // photo + quote pairing
   "rooftop-night.jpg", // full-bleed
   "casual-selfie.jpg", // grid
   "snow-day.jpg", // grid
-  "engagement-elegant.jpg", // closing photo before wedding details
+  "painted-portrait.jpg", // closing photo before wedding details
 ];

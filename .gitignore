@@ -12,9 +12,10 @@ dist
 dist-ssr
 *.local
 
-# Raw photo uploads staging folder — copy what you want into
-# public/images/gallery/ instead; this folder isn't part of the built site.
+# Raw upload staging folders — copy what you want into public/images/gallery/
+# or public/audio/ instead; these aren't part of the built site.
 /photos/
+/Song/
 
 # Editor directories and files
 .vscode/*
