@@ -16,6 +16,11 @@
   vertical-align: -1px;
 }
 
+.location__divider {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
 .location__map {
   width: 100%;
   aspect-ratio: 16 / 10;

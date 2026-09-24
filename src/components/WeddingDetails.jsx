@@ -2,6 +2,7 @@ import { wedding } from "../config/wedding";
 import { useLanguage } from "../context/LanguageContext";
 import { Reveal } from "./Reveal";
 import { Countdown } from "./Countdown";
+import { SprigDivider } from "./Ornament";
 import { IconCalendar, IconClock, IconVenue, IconPin } from "./icons";
 import "./WeddingDetails.css";
 
@@ -21,6 +22,7 @@ export function WeddingDetails() {
         <Reveal className="details__intro">
           <span className="eyebrow">{t.detailsKicker}</span>
           <h2 className="section-title">{t.weddingDetails}</h2>
+          <SprigDivider className="details__divider" />
         </Reveal>
 
         <div className="details__grid">

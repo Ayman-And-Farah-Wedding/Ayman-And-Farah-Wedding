@@ -14,21 +14,23 @@ export const wedding = {
   // ---- Date & time ------------------------------------------------------
   // "date" is shown to guests. "dateISO" drives the countdown timer and
   // MUST be in YYYY-MM-DDTHH:mm:ss format (24h clock, local wedding time).
-  date: "15 May 2027",
-  dateISO: "2027-05-15T19:00:00",
+  date: "17 October 2026",
+  dateISO: "2026-10-17T19:00:00",
   ceremonyTime: "7:00 PM",
 
   // ---- Venue --------------------------------------------------------------
-  venue: "Grand Hotel Cairo",
+  venue: "Dar Dobbat Al-Madfa'eya",
   address: "Cairo, Egypt",
-  mapsUrl: "https://maps.google.com/?q=Grand+Hotel+Cairo",
+  mapsUrl:
+    "https://www.google.com/maps/place/%D8%AF%D8%A7%D8%B1+%D8%B6%D8%A8%D8%A7%D8%B7+%D8%A7%D9%84%D9%85%D8%AF%D9%81%D8%B9%D9%8A%D8%A9%E2%80%AD/@30.0803783,31.3541828,17z/data=!3m1!4b1!4m6!3m5!1s0x14583e1b58b407ff:0xfd07431ae98a939e!8m2!3d30.0803783!4d31.3541828!16s%2Fg%2F1vnrh9vt",
 
   // Optional: for a pixel-precise map pin (instead of a text search for
   // venue+address, which usually works fine but can be off for venues with
   // generic names). In Google Maps: search your venue -> Share -> Embed a
   // map -> Copy HTML -> paste ONLY the src="..." URL here. Leave empty to
   // use the automatic text-search map.
-  mapsEmbedUrl: "",
+  // Set directly from the exact coordinates in the Maps link you shared.
+  mapsEmbedUrl: "https://www.google.com/maps?q=30.0803783,31.3541828&z=17&output=embed",
 
   // ---- Messages -----------------------------------------------------------
   invitationLine: "You are invited to celebrate our wedding",
@@ -79,7 +81,7 @@ export const wedding = {
       text: "Two lives grew into one — new dreams, new adventures, and a promise to build a future together.",
     },
     {
-      year: "2027",
+      year: "2026",
       title: "Forever",
       text: "The day we say 'I do' and begin the story we've been writing for each other all along.",
     },
@@ -100,12 +102,10 @@ export const wedding = {
 // ============================================================================
 
 export const gallery = [
-  "photo-01.svg",
-  "photo-02.svg",
-  "photo-03.svg",
-  "photo-04.svg",
-  "photo-05.svg",
-  "photo-06.svg",
-  "photo-07.svg",
-  "photo-08.svg",
+  "painted-portrait.jpg", // hero opener — the painted portrait
+  "engagement-neon.jpg", // photo + quote pairing
+  "rooftop-night.jpg", // full-bleed
+  "casual-selfie.jpg", // grid
+  "snow-day.jpg", // grid
+  "engagement-elegant.jpg", // closing photo before wedding details
 ];

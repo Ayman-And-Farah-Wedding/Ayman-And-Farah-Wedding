@@ -9,14 +9,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #241f19, #3a2f24);
-  border: 1px solid var(--color-line-dark);
+  background: linear-gradient(135deg, var(--color-cream-deep), var(--color-sage-tint));
+  border: 1px solid var(--color-line);
 }
 
 .photo-frame__mark {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
-  letter-spacing: 0.3em;
-  color: var(--color-gold-light);
-  opacity: 0.75;
+  font-family: var(--font-script);
+  font-size: 1.8rem;
+  color: var(--color-gold-deep);
+  opacity: 0.8;
 }

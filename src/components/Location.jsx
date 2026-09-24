@@ -1,6 +1,7 @@
 import { wedding } from "../config/wedding";
 import { useLanguage } from "../context/LanguageContext";
 import { Reveal } from "./Reveal";
+import { SprigDivider } from "./Ornament";
 import { IconPin } from "./icons";
 import "./Location.css";
 
@@ -27,6 +28,7 @@ export function Location() {
           <h2 className="section-title" id="location-title">
             {wedding.venue}
           </h2>
+          <SprigDivider className="location__divider" />
           <p className="section-lede">{wedding.address}</p>
         </Reveal>
 

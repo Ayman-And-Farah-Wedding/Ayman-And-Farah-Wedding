@@ -6,6 +6,10 @@
   margin-bottom: clamp(3rem, 8vw, 5rem);
 }
 
+.story__divider {
+  margin-top: 1rem;
+}
+
 .story__timeline {
   display: flex;
   flex-direction: column;

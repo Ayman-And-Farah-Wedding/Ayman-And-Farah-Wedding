@@ -7,31 +7,35 @@
    ============================================================================ */
 
 :root {
-  /* ---- Palette --------------------------------------------------------- */
-  --color-ink: #211c18;          /* primary text on light backgrounds */
-  --color-ink-soft: #6b6156;     /* secondary / muted text on light bg */
-  --color-cream: #faf6ef;        /* primary light background */
-  --color-cream-deep: #f2e9d8;   /* secondary light background (cards) */
-  --color-charcoal: #17140f;     /* primary dark background */
-  --color-charcoal-soft: #251f18;/* secondary dark background */
-  --color-paper: #fffdf9;        /* near-white surface */
+  /* ---- Palette -----------------------------------------------------------
+     Soft, airy, botanical-stationery palette: warm ivory backgrounds, deep
+     sage green for headings/ink, muted gold for accents. No dark/charcoal
+     sections anywhere — the whole site stays light and elegant. */
+  --color-ink: #3f4a38;          /* primary heading color (deep sage) */
+  --color-ink-soft: #6b6f5c;     /* secondary / muted text on light bg */
+  --color-cream: #fbf8f2;        /* primary light background (warm ivory) */
+  --color-cream-deep: #f1ead9;   /* secondary light background (cards) */
+  --color-sage-tint: #edf0e2;    /* muted sage-tinted section background */
+  --color-sage: #6b7c5e;         /* mid sage — dividers, secondary accents */
+  --color-sage-soft: #97a688;    /* light sage — muted decorative strokes */
+  --color-sage-deep: #4a5940;    /* deep sage — headings on cream-deep */
+  --color-paper: #fffdf8;        /* near-white surface (cards, modal) */
 
-  --color-gold: #b8944f;         /* primary accent */
-  --color-gold-light: #ddc189;   /* accent on dark backgrounds */
+  --color-gold: #b8944f;         /* primary accent (buttons, dividers) */
+  --color-gold-light: #d9bd82;   /* soft gold accent */
   --color-gold-deep: #8f6f34;    /* accent hover / emphasis */
   --color-line: rgba(184, 148, 79, 0.35);
-  --color-line-dark: rgba(221, 193, 137, 0.28);
-
-  --color-cream-text: #f6efe2;   /* text on dark backgrounds */
-  --color-cream-text-soft: rgba(246, 239, 226, 0.72);
+  --color-line-dark: rgba(107, 124, 94, 0.3);
 
   /* ---- Typography -------------------------------------------------------- */
   --font-serif: "Playfair Display", "Georgia", serif;
   --font-accent: "Cormorant Garamond", "Georgia", serif;
+  --font-script: "Parisienne", "Cormorant Garamond", cursive;
   --font-sans: "Jost", "Helvetica Neue", Arial, sans-serif;
 
   --font-serif-ar: "Aref Ruqaa", "Amiri", "Traditional Arabic", serif;
   --font-accent-ar: "Amiri", "Traditional Arabic", serif;
+  --font-script-ar: "Aref Ruqaa", "Amiri", serif;
   --font-sans-ar: "Cairo", Tahoma, sans-serif;
 
   /* ---- Layout ------------------------------------------------------------- */
@@ -54,5 +58,6 @@
 [dir="rtl"] {
   --font-serif: var(--font-serif-ar);
   --font-accent: var(--font-accent-ar);
+  --font-script: var(--font-script-ar);
   --font-sans: var(--font-sans-ar);
 }

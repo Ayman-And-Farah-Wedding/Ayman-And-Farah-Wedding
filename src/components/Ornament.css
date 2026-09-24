@@ -1,0 +1,40 @@
+.sprig-divider {
+  width: 8.5rem;
+  height: auto;
+  color: var(--color-gold);
+  display: block;
+  margin-inline: auto;
+}
+
+.section--muted .sprig-divider {
+  color: var(--color-sage);
+}
+
+.corner-flourish {
+  position: absolute;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--color-gold);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.corner-flourish--tl {
+  top: -0.6rem;
+  inset-inline-start: -0.6rem;
+}
+
+.corner-flourish--br {
+  bottom: -0.6rem;
+  inset-inline-end: -0.6rem;
+  transform: rotate(180deg);
+}
+
+[dir="rtl"] .corner-flourish--tl,
+[dir="rtl"] .corner-flourish--br {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .corner-flourish--br {
+  transform: scaleX(-1) rotate(180deg);
+}

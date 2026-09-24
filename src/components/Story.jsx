@@ -1,6 +1,7 @@
 import { wedding } from "../config/wedding";
 import { useLanguage } from "../context/LanguageContext";
 import { Reveal } from "./Reveal";
+import { SprigDivider } from "./Ornament";
 import "./Story.css";
 
 export function Story() {
@@ -16,6 +17,7 @@ export function Story() {
           <h2 className="section-title" id="story-title">
             {t.storyKicker}
           </h2>
+          <SprigDivider className="story__divider" />
         </Reveal>
 
         <ol className="story__timeline">

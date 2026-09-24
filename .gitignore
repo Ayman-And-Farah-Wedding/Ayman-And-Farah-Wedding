@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Raw photo uploads staging folder — copy what you want into
+# public/images/gallery/ instead; this folder isn't part of the built site.
+/photos/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

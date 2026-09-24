@@ -5,6 +5,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { galleryPhotoPath } from "../utils/assetPath";
 import { PhotoFrame } from "./PhotoFrame";
 import { Reveal } from "./Reveal";
+import { SprigDivider } from "./Ornament";
 import "./RSVP.css";
 
 export function RSVP() {
@@ -39,10 +40,11 @@ export function RSVP() {
     <section className="rsvp section section--cream-deep" id="rsvp" aria-labelledby="rsvp-title">
       <div className="container container--narrow rsvp__inner">
         <Reveal>
-          <div className="divider divider--center" aria-hidden="true" />
+          <span className="eyebrow">{t.rsvpButton}</span>
           <h2 className="section-title" id="rsvp-title">
             {t.rsvpTitle}
           </h2>
+          <SprigDivider className="rsvp__divider" />
           <p className="section-lede rsvp__subtitle">{t.rsvpSubtitle}</p>
         </Reveal>
 

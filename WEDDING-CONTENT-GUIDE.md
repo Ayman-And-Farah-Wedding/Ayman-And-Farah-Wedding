@@ -235,10 +235,15 @@ Every color on the site is defined once at the top of this file — change a
 value there and it updates everywhere automatically. The main ones:
 
 ```css
---color-cream: #faf6ef;   /* main light background */
---color-charcoal: #17140f; /* dark sections (opening screen, details, footer) */
---color-gold: #b8944f;     /* accent color — buttons, dividers, icons */
+--color-cream: #fbf8f2;   /* main light background (warm ivory) */
+--color-sage-tint: #edf0e2; /* muted section background (details, footer) */
+--color-ink: #3f4a38;     /* heading/text color (deep sage) */
+--color-gold: #b8944f;    /* accent color — buttons, dividers, icons */
 ```
+
+The whole site uses a soft, airy, botanical-stationery palette — no dark
+sections anywhere — so any color you pick here should stay on the light,
+elegant side to match.
 
 ---
 
@@ -247,13 +252,21 @@ value there and it updates everywhere automatically. The main ones:
 Also in `src/styles/variables.css`:
 
 ```css
---font-serif: "Playfair Display", "Georgia", serif;   /* names & headings */
+--font-serif: "Playfair Display", "Georgia", serif;   /* section headings */
+--font-script: "Parisienne", "Cormorant Garamond", cursive; /* the couple's names */
 --font-sans: "Jost", "Helvetica Neue", Arial, sans-serif; /* body text & buttons */
 ```
 
-To use a different Google Font, pick one at [fonts.google.com](https://fonts.google.com),
-update the `<link href="...">` in `index.html` to load it, then change the
-font name above to match.
+`--font-script` is the flowing signature-style font used for your names on
+the opening screen and in the footer. To use a different Google Font, pick
+one at [fonts.google.com](https://fonts.google.com), update the
+`<link href="...">` in `index.html` to load it, then change the font name
+above to match.
+
+**The botanical flourishes** (the small leaf-sprig dividers under section
+titles, and the corner decorations framing photos) are original hand-coded
+vector line art in `src/components/Ornament.jsx` — no images to manage, and
+their color follows `--color-gold` automatically.
 
 ---
 

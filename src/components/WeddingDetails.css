@@ -12,6 +12,10 @@
   margin-bottom: clamp(2.75rem, 7vw, 4rem);
 }
 
+.details__divider {
+  margin-top: 1rem;
+}
+
 .details__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -26,14 +30,15 @@
   align-items: center;
   gap: 0.6rem;
   padding: 1.75rem 1rem;
-  border: 1px solid var(--color-line-dark);
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
   border-radius: var(--radius-md);
 }
 
 .details__icon {
   width: 1.6rem;
   height: 1.6rem;
-  color: var(--color-gold-light);
+  color: var(--color-gold-deep);
   margin-bottom: 0.3rem;
 }
 
@@ -41,20 +46,20 @@
   font-size: 0.66rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-cream-text-soft);
+  color: var(--color-ink-soft);
 }
 
 .details__value {
   font-family: var(--font-serif);
   font-size: 1.05rem;
-  color: var(--color-cream-text);
+  color: var(--color-ink);
 }
 
 .details__countdown {
   width: 100%;
   margin-top: clamp(3.5rem, 8vw, 5rem);
   padding-top: clamp(3rem, 7vw, 4rem);
-  border-top: 1px solid var(--color-line-dark);
+  border-top: 1px solid var(--color-line);
 }
 
 @media (max-width: 640px) {

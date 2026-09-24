@@ -84,9 +84,11 @@ ul {
   padding-block: var(--section-padding-y);
 }
 
+/* A muted, sage-tinted light section — used for visual rhythm between
+   plain-cream sections, never a dark background. */
 .section--dark {
-  background: var(--color-charcoal);
-  color: var(--color-cream-text);
+  background: var(--color-sage-tint);
+  color: var(--color-ink);
 }
 
 .section--cream-deep {
@@ -105,10 +107,6 @@ ul {
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--color-gold-deep);
-}
-
-.section--dark .eyebrow {
-  color: var(--color-gold-light);
 }
 
 .eyebrow::before {
@@ -135,10 +133,6 @@ ul {
   font-size: clamp(0.98rem, 1.4vw, 1.08rem);
   color: var(--color-ink-soft);
   font-weight: 300;
-}
-
-.section--dark .section-lede {
-  color: var(--color-cream-text-soft);
 }
 
 .divider {
@@ -180,7 +174,7 @@ ul {
 
 .btn:hover {
   background: var(--color-gold);
-  color: var(--color-charcoal);
+  color: var(--color-paper);
   transform: translateY(-1px);
 }
 
@@ -190,23 +184,13 @@ ul {
 
 .btn--solid {
   background: var(--color-gold);
-  color: var(--color-charcoal);
+  color: var(--color-paper);
 }
 
 .btn--solid:hover {
   background: var(--color-gold-deep);
   border-color: var(--color-gold-deep);
-  color: var(--color-cream-text);
-}
-
-.section--dark .btn {
-  border-color: var(--color-gold-light);
-  color: var(--color-gold-light);
-}
-
-.section--dark .btn:hover {
-  background: var(--color-gold-light);
-  color: var(--color-charcoal);
+  color: var(--color-paper);
 }
 
 /* ---- Visually hidden (a11y) --------------------------------------------- */
@@ -230,8 +214,8 @@ ul {
   top: -3rem;
   left: 1rem;
   z-index: 1000;
-  background: var(--color-charcoal);
-  color: var(--color-cream-text);
+  background: var(--color-sage-deep);
+  color: var(--color-paper);
   padding: 0.75rem 1.25rem;
   border-radius: var(--radius-sm);
   transition: top var(--dur-fast) var(--ease-premium);

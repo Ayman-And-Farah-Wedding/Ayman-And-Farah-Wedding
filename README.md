@@ -1,9 +1,11 @@
 # Ayman & Farah — Wedding Invitation
 
-A premium, cinematic, single-page wedding invitation. Full-screen opening
-sequence, cinematic scroll-driven photo story, live countdown, bilingual
-(English / Arabic with RTL), background music with a floating control, and
-zero backend — it's a static site you can host for free.
+A premium, single-page wedding invitation with a soft, airy, botanical-
+stationery look — warm ivory and sage tones, elegant script typography,
+original hand-drawn-style floral line art. Full-screen opening sequence,
+cinematic scroll-driven photo story, live countdown, bilingual (English /
+Arabic with RTL), background music with a floating control, and zero
+backend — it's a static site you can host for free.
 
 Everything you personalize lives in two files:
 

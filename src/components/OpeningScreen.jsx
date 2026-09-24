@@ -1,11 +1,14 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
-import { wedding } from "../config/wedding";
+import { wedding, gallery } from "../config/wedding";
 import { useLanguage } from "../context/LanguageContext";
 import { useReducedMotion } from "../hooks/useReducedMotion";
+import { galleryPhotoPath } from "../utils/assetPath";
+import { PhotoFrame } from "./PhotoFrame";
+import { SprigDivider, CornerFlourish } from "./Ornament";
 import "./OpeningScreen.css";
 
-function useParticles(count = 16) {
+function useParticles(count = 14) {
   return useMemo(
     () =>
       Array.from({ length: count }, (_, i) => ({
@@ -13,7 +16,7 @@ function useParticles(count = 16) {
         left: `${(i * 137.5) % 100}%`,
         top: `${(i * 61.8) % 100}%`,
         delay: (i % 7) * 0.6,
-        duration: 6 + (i % 5),
+        duration: 7 + (i % 5),
         size: i % 3 === 0 ? 3 : 2,
       })),
     [count]
@@ -23,25 +26,26 @@ function useParticles(count = 16) {
 const container = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.22, delayChildren: 0.3 },
+    transition: { staggerChildren: 0.2, delayChildren: 0.2 },
   },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 22 },
-  show: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } },
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
 };
 
 export function OpeningScreen({ onOpen }) {
   const { t } = useLanguage();
   const reducedMotion = useReducedMotion();
   const particles = useParticles();
+  const portrait = gallery[0];
 
   return (
     <motion.div
       className="opening"
-      exit={{ opacity: 0, scale: 1.06, filter: "blur(18px)" }}
-      transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+      exit={{ opacity: 0, scale: 1.03, filter: "blur(14px)" }}
+      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="opening__backdrop" aria-hidden="true" />
       {!reducedMotion && (
@@ -63,25 +67,41 @@ export function OpeningScreen({ onOpen }) {
         </div>
       )}
 
+      <div className="opening__frame-corner opening__frame-corner--tl" aria-hidden="true">
+        <CornerFlourish />
+      </div>
+      <div className="opening__frame-corner opening__frame-corner--br" aria-hidden="true">
+        <CornerFlourish />
+      </div>
+
       <motion.div
         className="opening__content"
         variants={container}
         initial="hidden"
         animate="show"
       >
+        {portrait && (
+          <motion.div className="opening__portrait" variants={item}>
+            <PhotoFrame
+              src={galleryPhotoPath(portrait)}
+              alt={`${wedding.groom} & ${wedding.bride}`}
+              className="opening__portrait-img"
+              eager
+            />
+          </motion.div>
+        )}
+
         <motion.span className="opening__eyebrow" variants={item}>
           {t.invitationHint}
         </motion.span>
 
-        <motion.div className="opening__names" variants={item}>
-          <span className="opening__name">{wedding.groom}</span>
-          <span className="opening__amp" aria-hidden="true">
-            &amp;
-          </span>
-          <span className="opening__name">{wedding.bride}</span>
-        </motion.div>
+        <motion.h1 className="opening__names" variants={item}>
+          {wedding.groom} <span className="opening__amp">&amp;</span> {wedding.bride}
+        </motion.h1>
 
-        <motion.div className="opening__divider" variants={item} aria-hidden="true" />
+        <motion.div variants={item}>
+          <SprigDivider className="opening__divider" />
+        </motion.div>
 
         <motion.p className="opening__date" variants={item}>
           {wedding.date}

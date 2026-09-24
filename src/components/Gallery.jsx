@@ -5,6 +5,7 @@ import { useReducedMotion } from "../hooks/useReducedMotion";
 import { galleryPhotoPath } from "../utils/assetPath";
 import { PhotoFrame } from "./PhotoFrame";
 import { Reveal } from "./Reveal";
+import { SprigDivider, CornerFlourish } from "./Ornament";
 import "./Gallery.css";
 
 export function Gallery() {
@@ -16,7 +17,10 @@ export function Gallery() {
   const photos = gallery.map(galleryPhotoPath);
   const duoPhoto = photos[1];
   const fullBleedPhoto = photos[2] || photos[0];
-  const gridPhotos = photos.slice(3, 7);
+  // Grid takes everything after the full-bleed photo, reserving the very
+  // last photo for the closing section below so nothing repeats twice,
+  // regardless of how many photos are actually in the gallery.
+  const gridPhotos = photos.slice(3, Math.max(3, photos.length - 1));
   const finalPhoto = photos[photos.length - 1];
 
   return (
@@ -25,6 +29,8 @@ export function Gallery() {
         <section className="photo-duo section" aria-label={t.galleryTitle}>
           <div className="container photo-duo__inner">
             <Reveal className="photo-duo__frame" direction="right">
+              <CornerFlourish className="corner-flourish--tl" />
+              <CornerFlourish className="corner-flourish--br" />
               <PhotoFrame src={duoPhoto} alt="A moment together" className="photo-duo__img" />
             </Reveal>
             <Reveal className="photo-duo__copy" direction="left" delay={0.15}>
@@ -54,6 +60,7 @@ export function Gallery() {
           <div className="container">
             <Reveal className="photo-grid__title">
               <span className="eyebrow">{t.galleryTitle}</span>
+              <SprigDivider className="photo-grid__divider" />
             </Reveal>
             <div className="photo-grid__items">
               {gridPhotos.map((photo, index) => (
@@ -72,11 +79,14 @@ export function Gallery() {
       )}
 
       {finalPhoto && (
-        <section className="photo-final">
-          <Reveal className="photo-final__frame" direction="zoom" duration={1.2}>
-            <PhotoFrame src={finalPhoto} alt="The couple" className="photo-final__img" />
-            <div className="photo-final__scrim" aria-hidden="true" />
-          </Reveal>
+        <section className="photo-final section">
+          <div className="container container--narrow">
+            <Reveal className="photo-final__frame" direction="zoom" duration={1.2}>
+              <CornerFlourish className="corner-flourish--tl" />
+              <CornerFlourish className="corner-flourish--br" />
+              <PhotoFrame src={finalPhoto} alt="The couple" className="photo-final__img" />
+            </Reveal>
+          </div>
         </section>
       )}
     </>
