@@ -14,7 +14,7 @@ export function QuranVerse() {
       <div className="container container--narrow quran__inner">
         <Reveal>
           <p className="quran__text" lang="ar" dir="rtl">
-            &#64830;{wedding.quranVerse}&#64831;
+            &#64831;{wedding.quranVerse}&#64830;
           </p>
           <SprigDivider className="quran__divider" />
           {wedding.quranReference && (
