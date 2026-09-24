@@ -13,12 +13,12 @@
 // ============================================================================
 
 export const firebaseConfig = {
-  apiKey: "",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: "",
+  apiKey: "AIzaSyC8ot5OiHxVZ-5_uC1VCUbaDSqJBrIsDdA",
+  authDomain: "wedding-2c5e5.firebaseapp.com",
+  projectId: "wedding-2c5e5",
+  storageBucket: "wedding-2c5e5.firebasestorage.app",
+  messagingSenderId: "730205241553",
+  appId: "1:730205241553:web:400ea409fa06ac03e105f0",
 };
 
 export const guestbookEnabled = Boolean(firebaseConfig.apiKey && firebaseConfig.projectId);
