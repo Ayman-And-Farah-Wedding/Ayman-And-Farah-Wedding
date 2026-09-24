@@ -37,21 +37,16 @@ export const wedding = {
   message:
     "We would be honored to have you celebrate this special day with us. Your presence would mean the world as we begin our forever.",
 
-  // ---- RSVP & guest wishes ----------------------------------------------------
-  // RECOMMENDED: create a free Google Form with 3 questions — Name,
-  // "Will you attend?", and "Leave your wishes for us" — then paste its
-  // EMBED link here. When a guest clicks "RSVP" they'll see a popup with
-  // your photo, a thank-you message, and that form right on the site —
-  // every response (including their written wishes) is saved automatically
-  // to a Google Sheet only you can see. Exact steps in
-  // WEDDING-CONTENT-GUIDE.md -> "RSVP & saving guest wishes".
-  rsvpFormEmbedUrl: "",
-
-  // Fallback link (opens in a new tab). Used automatically if you leave
-  // rsvpFormEmbedUrl empty above, and always offered as a secondary "open
-  // full page" option inside the popup. Leave both empty ("") to hide the
-  // RSVP button entirely.
-  rsvpUrl: "https://forms.google.com/",
+  // ---- RSVP & Guest Book ----------------------------------------------------
+  // The RSVP section is a native Guest Book right on the page — guests type
+  // their name, confirm attendance, and leave a wish, all without Google
+  // Forms. It needs a free Firebase project (no credit card) to store the
+  // messages. Exact click-by-click steps in WEDDING-CONTENT-GUIDE.md ->
+  // "Guest Book setup". Fill in src/config/firebase.js to turn it on.
+  //
+  // rsvpUrl is only used as a fallback link if you never set up Firebase —
+  // leave it empty ("") to hide the RSVP section entirely until you do.
+  rsvpUrl: "",
 
   // ---- Social ---------------------------------------------------------------
   // Leave any value empty ("") to hide that element automatically.

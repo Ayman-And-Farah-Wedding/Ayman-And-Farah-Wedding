@@ -1,0 +1,259 @@
+.guestbook__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.guestbook__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.guestbook__photo {
+  position: relative;
+  width: min(100%, 12rem);
+  aspect-ratio: 1;
+  margin-bottom: 1.75rem;
+  padding: 0.4rem;
+  background: var(--color-paper);
+  border: 1px solid var(--color-gold);
+  box-shadow: 0 16px 40px rgba(74, 89, 64, 0.14);
+}
+
+.guestbook__photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.guestbook__divider {
+  margin-top: 1rem;
+}
+
+.guestbook__subtitle {
+  margin-inline: auto;
+}
+
+/* ---- Form ------------------------------------------------------------- */
+
+.guestbook__form-wrap {
+  width: 100%;
+  max-width: 30rem;
+  margin-top: clamp(2rem, 5vw, 2.75rem);
+}
+
+.guestbook__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: clamp(1.5rem, 5vw, 2.25rem);
+}
+
+.guestbook__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.guestbook__field label,
+.guestbook__field-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+
+.guestbook__field input[type="text"],
+.guestbook__field textarea {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  background: var(--color-cream);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+  resize: vertical;
+}
+
+.guestbook__field input[type="text"]:focus,
+.guestbook__field textarea:focus {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 1px;
+}
+
+.guestbook__pills {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.guestbook__pill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+  background: var(--color-cream);
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.guestbook__pill input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.guestbook__pill.is-active {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-paper);
+}
+
+.guestbook__honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  left: -9999px;
+}
+
+.guestbook__submit {
+  margin-top: 0.25rem;
+  width: 100%;
+}
+
+.guestbook__submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.guestbook__error {
+  font-size: 0.85rem;
+  color: #a4462f;
+  text-align: center;
+}
+
+/* ---- Thank-you state --------------------------------------------------- */
+
+.guestbook__thanks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  padding: clamp(2rem, 6vw, 2.75rem);
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+}
+
+.guestbook__thanks-icon {
+  font-size: 1.6rem;
+  color: var(--color-gold);
+}
+
+.guestbook__thanks p {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--color-ink);
+  max-width: 32ch;
+}
+
+.guestbook__again {
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--color-gold-deep);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  background: none;
+  border-top: none;
+  border-inline: none;
+}
+
+/* ---- Wall of wishes ----------------------------------------------------- */
+
+.guestbook__wall {
+  width: 100%;
+  margin-top: clamp(3.5rem, 8vw, 5rem);
+  padding-top: clamp(3rem, 7vw, 4rem);
+  border-top: 1px solid var(--color-line);
+  text-align: center;
+}
+
+.guestbook__wall-divider {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.guestbook__empty {
+  color: var(--color-ink-soft);
+  font-style: italic;
+  font-family: var(--font-accent);
+}
+
+.guestbook__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  text-align: start;
+}
+
+.guestbook__card {
+  padding: 1.5rem;
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.guestbook__card-message {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-ink);
+  overflow-wrap: anywhere;
+}
+
+.guestbook__card-footer {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+}
+
+.guestbook__card-name {
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-gold-deep);
+}
+
+.guestbook__card-time {
+  color: var(--color-ink-soft);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .guestbook__list {
+    grid-template-columns: 1fr;
+  }
+  .guestbook__pills {
+    flex-direction: row;
+  }
+}

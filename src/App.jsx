@@ -11,7 +11,7 @@ import { Story } from "./components/Story";
 import { Gallery } from "./components/Gallery";
 import { WeddingDetails } from "./components/WeddingDetails";
 import { Location } from "./components/Location";
-import { RSVP } from "./components/RSVP";
+import { GuestBook } from "./components/GuestBook";
 import { Footer } from "./components/Footer";
 
 function Invitation() {
@@ -53,7 +53,7 @@ function Invitation() {
           <Gallery />
           <WeddingDetails />
           <Location />
-          <RSVP />
+          <GuestBook />
         </main>
         <Footer />
       </div>

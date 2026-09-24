@@ -150,59 +150,105 @@ Leave it as `""` to keep using the automatic text-search map.
 
 ---
 
-## RSVP & saving guest wishes
+## RSVP & Guest Book setup
 
 **What does "RSVP" mean?** It's short for the French *répondez s'il vous
 plaît* — "please respond." It's just the standard way of asking a guest to
 confirm whether they're coming.
 
-This site can do more than just link out to a form — tapping **RSVP** opens
-a popup right on the site with your photo, a thank-you message, and a form
-where guests can confirm attendance *and* leave you a written wish. Every
-response is saved automatically to a Google Sheet only you can see.
+The RSVP section is a real **Guest Book right on the page** — no Google
+Forms, no popup, no redirect. Guests type their name, confirm attendance,
+and leave a written wish, and everyone can scroll down and read the wall of
+wishes other guests have left (a bit like a real paper guest book at the
+venue). It needs a free place to store those messages, which is what the
+steps below set up.
 
-**Setup (about 5 minutes):**
+**Why Firebase?** It's Google's free app-backend service — free tier, no
+credit card, and its free quota (about 20,000 writes/day) is far more than
+any wedding will ever use. This is a one-time setup; once it's done, it
+just works.
 
-1. Go to [forms.google.com](https://forms.google.com) and create a new form.
-2. Add 3 questions, for example:
-   - **Name** (short answer)
-   - **Will you attend?** (multiple choice: Yes / No)
-   - **Leave your wishes for us** (paragraph)
-3. Click the **Send** button (top right) → click the **embed icon** `<>` →
-   copy the URL inside the box (starts with `https://docs.google.com/forms/d/e/...`).
-4. Paste it here in `src/config/wedding.js`:
+### Step-by-step (about 10 minutes)
 
-```js
-rsvpFormEmbedUrl: "https://docs.google.com/forms/d/e/your-form-id/viewform?embedded=true",
-```
+1. Go to [console.firebase.google.com](https://console.firebase.google.com)
+   and sign in with any Google account.
+2. Click **Create a project** (or **Add project**). Name it anything, e.g.
+   `ayman-farah-wedding`. You can skip/disable Google Analytics when asked —
+   it isn't needed.
+3. Once the project is created, click the **Web** icon (`</>`) on the
+   project overview page to register a web app. Give it any nickname and
+   click **Register app**. You do *not* need Firebase Hosting.
+4. You'll see a code block with a `firebaseConfig` object like this:
 
-That's it — the RSVP button now opens the popup with the embedded form
-inside it.
+   ```js
+   const firebaseConfig = {
+     apiKey: "AIza...",
+     authDomain: "ayman-farah-wedding.firebaseapp.com",
+     projectId: "ayman-farah-wedding",
+     storageBucket: "ayman-farah-wedding.appspot.com",
+     messagingSenderId: "123456789",
+     appId: "1:123456789:web:abcdef123456",
+   };
+   ```
 
-**Where do guest wishes go?** Open your form in Google Forms → click the
-**Responses** tab → click the green Sheets icon to create a linked Google
-Sheet. Every name, attendance answer, and written wish a guest submits
-appears there automatically, in real time, forever, for free.
+   Copy those exact values into **`src/config/firebase.js`** in this
+   project, replacing the empty `""` strings.
 
-**Optional:** `rsvpUrl` (a plain link) still works as a fallback — if you
-leave `rsvpFormEmbedUrl` empty, the RSVP button just opens `rsvpUrl` in a
-new tab instead of the popup. It's also always shown as a secondary "open
-full page" link inside the popup. Leave both empty (`""`) to hide the RSVP
-button entirely.
+5. Back in the Firebase console, open **Build → Firestore Database** in the
+   left sidebar → click **Create database** → choose a region close to your
+   guests → start in **test mode** (we'll lock it down properly in the next
+   step).
+6. Once created, click the **Rules** tab and replace everything with:
+
+   ```
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /guestbookMessages/{messageId} {
+         allow read: if true;
+         allow create: if request.resource.data.name is string
+                       && request.resource.data.name.size() > 0
+                       && request.resource.data.name.size() <= 60
+                       && request.resource.data.message is string
+                       && request.resource.data.message.size() > 0
+                       && request.resource.data.message.size() <= 500
+                       && request.resource.data.attending in ["yes", "no", ""];
+         allow update, delete: if false;
+       }
+     }
+   }
+   ```
+
+   Click **Publish**. This is what keeps the Guest Book safe: anyone can
+   read and post a wish, but nobody (including guests) can edit or delete
+   an existing message from the site itself.
+
+7. Save `src/config/firebase.js` and reload the site — the Guest Book
+   section will now appear, form and all.
+
+**Where do messages go / how do I moderate them?** In the Firebase console,
+go to **Firestore Database → Data** — every submission appears there as a
+row, in real time, with the guest's name, message, and attendance answer.
+If something inappropriate gets posted, you can delete that one row
+directly there (deleting isn't possible from the public site itself, by
+design).
+
+**Optional fallback:** if you don't want to set up Firebase right now,
+leave `src/config/firebase.js` untouched and instead set `rsvpUrl` in
+`src/config/wedding.js` to any link (a Google Form, WhatsApp, etc.) — the
+RSVP button will just open that link instead. Leave both unset to hide the
+RSVP section entirely.
 
 ---
 
-## Change your "Our Story" timeline
+## Change your "Our Story" text
 
 ```js
-story: [
-  {
-    year: "2019",
-    title: "The Beginning",
-    text: "A chance meeting, a long conversation...",
-  },
-  // add, remove, or edit as many entries as you like
-],
+story: `Write your story here. You can use a blank line to start a new
+paragraph, like this.
+
+This becomes a second paragraph.`,
+storyPhoto: "your-photo.jpg", // a filename from public/images/gallery/
 ```
 
 Don't want this section at all? Change this line:
@@ -307,6 +353,6 @@ automatically when Arabic is selected.
 - [ ] Real photos added to `public/images/gallery/` and listed in `gallery`
 - [ ] Real song added to `public/audio/wedding-song.mp3`
 - [ ] `mapsUrl` points to your actual venue
-- [ ] `rsvpFormEmbedUrl` (or `rsvpUrl`) points to your actual RSVP form
-- [ ] Opened the RSVP popup yourself and submitted a test response — check it landed in your Google Sheet
+- [ ] `src/config/firebase.js` filled in (or `rsvpUrl` set as a fallback)
+- [ ] Opened the Guest Book yourself and submitted a test wish — check it appears on the wall and in the Firebase console
 - [ ] Opened the site on your own phone once to double check

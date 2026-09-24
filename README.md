@@ -136,11 +136,11 @@ or at your custom domain, if you've configured one.
   to "Today is the day ❤" automatically.
 - **Location** — an embedded, no-API-key Google Map plus an "Open in Google
   Maps" button.
-- **RSVP** — opens an on-site popup with your photo, a thank-you message,
-  and an embedded free Google Form so guests can confirm attendance and
-  leave a written wish without leaving the site — every response saves
-  automatically to a Google Sheet you own. Falls back to a plain link, or
-  hides itself if left unconfigured.
+- **RSVP & Guest Book** — a native form right on the page (no Google Forms,
+  no popup) where guests confirm attendance and leave a written wish, plus
+  a live public wall of everyone's wishes. Backed by a free Firebase
+  project you control. Falls back to a plain link, or hides itself, if
+  left unconfigured.
 - **Social** — Instagram/Facebook/hashtag, each shown only if you fill it in.
 - **Floating music control** — play/pause and mute/unmute, persists across
   scrolling, fails gracefully if the browser blocks autoplay or no song has
@@ -158,8 +158,8 @@ or at your custom domain, if you've configured one.
 |---|---|
 | Names, date, time, venue, address | `src/config/wedding.js` |
 | Google Maps link (+ optional precise pin) | `src/config/wedding.js` → `mapsUrl` / `mapsEmbedUrl` |
-| RSVP popup + saved guest wishes | `src/config/wedding.js` → `rsvpFormEmbedUrl` (see content guide) |
-| Our Story timeline (or turn it off) | `src/config/wedding.js` → `story` / `showStory` |
+| Guest Book (RSVP + wishes) | `src/config/firebase.js` (see content guide) |
+| Our Story text + photo (or turn it off) | `src/config/wedding.js` → `story` / `storyPhoto` / `showStory` |
 | Photos | `public/images/gallery/` + `src/config/wedding.js` → `gallery` |
 | Music | `public/audio/wedding-song.mp3` |
 | UI text / Arabic translations | `src/config/translations.js` |
