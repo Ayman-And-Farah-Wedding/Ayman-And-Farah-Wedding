@@ -73,7 +73,7 @@ export const wedding = {
   // public/images/gallery/, same as the gallery list below.
   showStory: true,
   story: `Ayman and Farah were friends in school, but fate had something more beautiful written for them. They met again at university, and that's where the spark began. From friends to lovers, Ayman saw Farah in a different light for the first time, and from that moment, he knew she was the one. And here comes the day to celebrate their happily ever after.`,
-  storyPhoto: "engagement-formal.jpg",
+  storyPhoto: "snow-day.jpg",
 
   // ---- Gallery toggle -------------------------------------------------------------
   showGallery: true,
@@ -93,7 +93,6 @@ export const gallery = [
   "engagement-elegant.jpg", // photo + quote pairing
   "casual-selfie.jpg", // grid
   "rooftop-night.jpg", // grid
-  "snow-day.jpg", // grid
   "painted-portrait.jpg", // grid
   "engagement-neon.jpg", // closing photo before wedding details
 ];
