@@ -1,7 +1,5 @@
-import { motion } from "framer-motion";
 import { wedding, gallery } from "../config/wedding";
 import { useLanguage } from "../context/LanguageContext";
-import { useReducedMotion } from "../hooks/useReducedMotion";
 import { galleryPhotoPath } from "../utils/assetPath";
 import { PhotoFrame } from "./PhotoFrame";
 import { Reveal } from "./Reveal";
@@ -10,17 +8,15 @@ import "./Gallery.css";
 
 export function Gallery() {
   const { t } = useLanguage();
-  const reducedMotion = useReducedMotion();
 
   if (!wedding.showGallery || gallery.length === 0) return null;
 
   const photos = gallery.map(galleryPhotoPath);
   const duoPhoto = photos[0];
-  const fullBleedPhoto = photos[1] || photos[0];
-  // Grid takes everything after the full-bleed photo, reserving the very
-  // last photo for the closing section below so nothing repeats twice,
-  // regardless of how many photos are actually in the gallery.
-  const gridPhotos = photos.slice(2, Math.max(2, photos.length - 1));
+  // Grid takes everything between the duo photo and the closing photo
+  // below, so nothing repeats twice regardless of how many photos are
+  // actually in the gallery.
+  const gridPhotos = photos.slice(1, Math.max(1, photos.length - 1));
   const finalPhoto = photos[photos.length - 1];
 
   return (
@@ -38,20 +34,6 @@ export function Gallery() {
               <p className="photo-duo__quote">&ldquo;{wedding.message}&rdquo;</p>
             </Reveal>
           </div>
-        </section>
-      )}
-
-      {fullBleedPhoto && (
-        <section className="photo-full" aria-hidden="false">
-          <motion.div
-            className="photo-full__media"
-            initial={{ scale: 1.1 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: reducedMotion ? 0 : 1.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <PhotoFrame src={fullBleedPhoto} alt="Together" className="photo-full__img" />
-          </motion.div>
         </section>
       )}
 

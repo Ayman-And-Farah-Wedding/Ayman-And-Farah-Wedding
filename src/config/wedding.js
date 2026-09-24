@@ -85,14 +85,13 @@ export const wedding = {
 // Add your own photos to:  public/images/gallery/
 // Then list the filenames here, in the order you want them to appear. The
 // first photo pairs with your message, the last becomes the closing photo
-// before the wedding details — everything in between forms the scrolling
-// story (one full-bleed photo, then a small centered grid). JPG, PNG, WEBP
-// or SVG all work.
+// before the wedding details — everything in between shows as a small
+// centered grid. JPG, PNG, WEBP or SVG all work.
 // ============================================================================
 
 export const gallery = [
   "engagement-elegant.jpg", // photo + quote pairing
-  "casual-selfie.jpg", // full-bleed (landscape photo — crops cleanly)
+  "casual-selfie.jpg", // grid
   "rooftop-night.jpg", // grid
   "snow-day.jpg", // grid
   "painted-portrait.jpg", // grid

@@ -4,15 +4,16 @@
 
 .hero__banner {
   width: 100%;
-  height: clamp(20rem, 60vh, 34rem);
   overflow: hidden;
 }
 
 .hero__banner-img {
+  /* Full image, no cropping — height follows the image's own aspect
+     ratio instead of being forced into a fixed-height cropped band. */
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 30%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .hero__text {

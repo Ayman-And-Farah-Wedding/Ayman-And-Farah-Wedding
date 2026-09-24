@@ -126,9 +126,9 @@ or at your custom domain, if you've configured one.
 - **Opening screen** — full-screen cinematic reveal with the couple's names,
   date, and an "Open Invitation" button. No music or animation plays until
   the guest taps it.
-- **Cinematic photo story** — hero photo, photo+quote pairing, full-bleed
-  photo, a staggered grid, and a closing photo, each with scroll-triggered
-  fade/zoom/parallax reveals.
+- **Cinematic photo story** — full-width hero illustration/photo,
+  photo+quote pairing, a centered grid, and a closing photo, each with
+  scroll-triggered fade/zoom reveals.
 - **Our Story timeline** — configurable, can be turned off entirely.
 - **Wedding details** — date, time, venue, address, with a "Get Directions"
   button linking to your Google Maps URL.
